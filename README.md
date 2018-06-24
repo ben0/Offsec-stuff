@@ -159,30 +159,32 @@ RPC scripts: `nmap --script="rpc*" 10.10.10.33`
 ## Windows Enum:
 
 SMB Fingerprinting methods: `smbclient -L //10.10.10.9`,`Enum4linux -a 10.10.10.9`,`RPCClient -U “” 10.10.10.9`,
-`nmap $ip --script smb-os-discovery.nse`,`smbclient -l $ip`\
-SMB share enumeration`nmap -p 445 -vv --script=smb-enum-shares.nse,smb-enum-users.nse 10.10.10.10`\
-SMB Mount share: `smbclient //10.10.10.59/acct -I $IP -N`\
-RPCClient authenticated scan: `rpcclient --user="<Username>" --command=enumprivs $ip`\
-SMB Nmap authenticated scan: `nmap -sV -Pn -vv -p445 $ip --script-args smbuser={},smbpass={} --script='(smb*) and safe ' `\
+`nmap 10.10.10.9 --script smb-os-discovery.nse`\
+SMB share enumeration`nmap -p 445 -vv --script=smb-enum-shares.nse,smb-enum-users.nse 10.10.10.9`\
+SMB Mount share: `smbclient //10.10.10.9/share -I $IP -N`\
+RPCClient authenticated scan: `rpcclient --user="<Username>" --command=enumprivs 10.10.10.9`\
+SMB Nmap authenticated scan: `nmap -sV -Pn -vv -p445 10.10.10.9 --script-args smbuser={},smbpass={} --script='(smb*) and safe ' `\
 SMB Nmap authenticates open: `nmap -p445 192.168.10.0/24 -v --script smb-enum-shares --script-args smbuser={},smbpass={}   -oA nmap-auth-shares`\
-SMB Nmap enumerate users: `nmap -sU -sS --script=smb-enum-users -p U:137,T:139 $ip -oA nmap-enum-users`\
-Rid cycling: `ridenum.py 10.10.10.59 500 50000 dict.txt`\
-DCOM Metasploit enumeration: `use auxiliary/scanner/dcerpc/`\
-Netbios enumeration: `nbtscan -r $ip/24`,`nmap -sU --script nbstat.nse -p 137 $ip`
+SMB Nmap enumerate users: `nmap -sU -sS --script=smb-enum-users -p U:137,T:139 10.10.10.9 -oA nmap-enum-users`\
+Rid cycling: `ridenum.py 10.10.10.9 500 50000 dict.txt`\
+Metasploit DCOM enumeration: `use auxiliary/scanner/dcerpc/endpoint_mapper`\
+Metasploit Hidden DCOM enumeration: `use auxiliary/scanner/dcerpc/hidden`\
+Metasploit Management DCOM enumeration: `use auxiliary/scanner/dcerpc/management`\
+Netbios enumeration: `nbtscan -r 10.10.10.0/24`,`nmap -sU --script nbstat.nse -p 137 10.10.10.9`
 
 # Infrastructure testing
 
 ### Test SSL:
 
 Enumerate SSL/TLS: `testssl --headers --vulnerable --log --html www.google.co.uk:443`\
-Enumerate SSL/TLS: `SSLScan $IP:443`
+Enumerate SSL/TLS: `SSLScan 10.10.10.9:443`
 
 ### FTP TCP/21:
 
 ### SMTP TCP/25:
 
 Metasploit: `auxiliary/scanner/smtp/smtp_enum`\
-NMap: `nmap 10.10.10.44 –script smtp-enum-users.nse -oA nmap-smtp-user-enum`
+NMap: `nmap 10.10.10.9 –script smtp-enum-users.nse -oA nmap-smtp-user-enum`
 
 ### DNS TCP-UDP/53
 
