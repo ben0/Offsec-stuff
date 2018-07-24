@@ -35,7 +35,9 @@ Find UID 0 files root execution: `find / -perm -g=s -o -perm -4000 ! -type l -ma
 Linux enum: `wget https://highon.coffee/downloads/linux-local-enum.sh; chmod +x ./linux-local-enum.sh; ./linux-local-enum.sh`\
 Find executable files updated in Jan: `find / -executable -type f 2> /dev/null | egrep -v "^/bin|^/var|^/etc|^/usr" | xargs ls -lh | grep Jan`\
 Find a specific file on linux: `find /. -name suid\*`\
-Files modified in the last 90 days: `find -type f -mtime 90` \
+Files modified in the last 90 days: `find -type f -mtime -90` \
+Files modified 90 days ago: `find -type f -mtime 90` \
+Files modified around 3 months ago: `find -type f -mtime 75 +mtime 105` \
 String in a file: `strings $file`\
 File type info: `file $file`\
 Exif information: `exiftool $file`\
