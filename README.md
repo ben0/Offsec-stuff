@@ -32,9 +32,10 @@ Find files PSH: `gci -filter * -recurse`
 ### Finding files/data:
 
 Find UID 0 files root execution: `find / -perm -g=s -o -perm -4000 ! -type l -maxdepth 3 -exec ls -ld {} \\; 2>/dev/null`\
-Linux emum: `wget https://highon.coffee/downloads/linux-local-enum.sh; chmod +x ./linux-local-enum.sh; ./linux-local-enum.sh`\
+Linux enum: `wget https://highon.coffee/downloads/linux-local-enum.sh; chmod +x ./linux-local-enum.sh; ./linux-local-enum.sh`\
 Find executable files updated in Jan: `find / -executable -type f 2> /dev/null | egrep -v "^/bin|^/var|^/etc|^/usr" | xargs ls -lh | grep Jan`\
 Find a specific file on linux: `find /. -name suid\*`\
+Files modified in the last 90 days: `find -type f -mtime 90` \
 String in a file: `strings $file`\
 File type info: `file $file`\
 Exif information: `exiftool $file`\
