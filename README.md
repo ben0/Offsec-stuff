@@ -440,7 +440,7 @@ Backdoor factory
 
 ### SSH with Proxychains
 
-Setup a local SOCKS proxy: `ssh -fN -D 127.0.0.1:8888 user@target-host.com`\
+Setup a dynamic local SOCKS proxy: `ssh -fN -D 127.0.0.1:8888 user@target-host.com`\
 Config file: eg `pivot.conf`\
 `strict_chain # Do each connection via the proxies listed in order, alts: dynamic_chain, random_chain`\
 `quiet_mode # No output`\
