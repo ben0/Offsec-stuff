@@ -240,23 +240,24 @@ LFI: `http://www.insomniasec.com/publications/LFI%20With%20PHPInfo%20Assistance.
 
 ### Check file extensions:
 
-ASP Classic: asp\
-ASP.NET: aspx,axd,asx,asmx,ashx\
-CSS: css\
-Coldfusion: cfm\
-Erlang: yaws\
-Flash: swf\
-HTML: html,htm,xhtml,jhtml\
-Java: jsp,jspx,wss,do,action\
-JavaScript: js\
-Perl: pl\
-PHP,php,php4,php3,phtml\
-Python: py\
-Ruby: rb,rhtml\
-SSI: shtml\
-XML: xml, rss, svg\
-Other (C, perl etc.): cgi, dll\
-Random: txt, bak, un~
+ASP Classic: `asp`\
+ASP.NET: a`spx,axd,asx,asmx,ashx`\
+All IIS: `asax,ascx,ashx,asmx,aspx,axd,browser,cd,compile,config,cs,vb,csproj,vbproj,disco,vsdisco,dsdgm,dsprototype,dll,licx,webinfo,master,mdb,ldb,mdf,msgx,svc,resrouce,resx,sdm,sdmDocument,sitemap,skin,sln,soap,asa,imDitto,cdx,cer,idc,shtm,shtm,stm,css,htm,html`\
+CSS: `css\
+Coldfusion: `cfm`\
+Erlang: `yaws`\
+Flash: `swf`\
+HTML: `html,htm,xhtml,jhtml`\
+Java: `jsp,jspx,wss,do,action`\
+JavaScript: `js`\
+Perl: `pl`\
+`PHP,php,php4,php3,phtml`\
+Python: `py`\
+Ruby: `rb,rhtml`\
+SSI: `shtml`\
+XML: `xml, rss, svg`\
+Other (C, perl etc.): `cgi, dll`\
+Random: `txt, bak, un~`
 
 ### Check http response codes: 200,204,301,302,307,403
 
