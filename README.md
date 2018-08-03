@@ -157,7 +157,7 @@ Categories: auth, broadcast, brute, default, discovery, dos, exploit, external, 
 Example: `nmap --script "default and safe"`\
 RPC scripts: `nmap --script="rpc*" 10.10.10.33`
 
-# Infrastructure hacking:
+# Infrastructure hacking
 
 ## Windows Enum:
 
@@ -189,7 +189,7 @@ Enumerate SSL/TLS: `SSLScan 10.10.10.9:443`
 Metasploit: `auxiliary/scanner/smtp/smtp_enum`\
 NMap: `nmap 10.10.10.9 –script smtp-enum-users.nse -oA nmap-smtp-user-enum`
 
-### DNS TCP-UDP/53
+### DNS TCP-UDP/53:
 
 Bruteforce hosts and subdomains: `use auxiliary/gather/dns_bruteforce`\
 DNS info: `use auxiliary/gather/dns_info`\
@@ -220,7 +220,7 @@ LDAP Windows User enumeration (SensePost-UserEnum): `UserEnum_LDAP.py 10.10.10.4
 
 Metasploit: `auxiliary/scanner/rservices/rsh_login`
 
-### HTTP/HTTPS TCP/80/443
+### HTTP/HTTPS TCP/80/443:
 
 Nmap -sV --script=http-enum --script-args http-enum.basepath=server/ -v 192.168.0.33\
 Nikto -h $ip\
@@ -241,7 +241,7 @@ LFI: `http://www.insomniasec.com/publications/LFI%20With%20PHPInfo%20Assistance.
 ### Check file extensions:
 
 ASP Classic: `asp`\
-ASP.NET: a`spx,axd,asx,asmx,ashx`\
+ASP.NET: `aspx,axd,asx,asmx,ashx`\
 All IIS: `asax,ascx,ashx,asmx,aspx,axd,browser,cd,compile,config,cs,vb,csproj,vbproj,disco,vsdisco,dsdgm,dsprototype,dll,licx,webinfo,master,mdb,ldb,mdf,msgx,svc,resrouce,resx,sdm,sdmDocument,sitemap,skin,sln,soap,asa,imDitto,cdx,cer,idc,shtm,shtm,stm,css,htm,html`\
 CSS: `css\
 Coldfusion: `cfm`\
