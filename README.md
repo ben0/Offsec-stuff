@@ -243,7 +243,7 @@ LFI: `http://www.insomniasec.com/publications/LFI%20With%20PHPInfo%20Assistance.
 ASP Classic: `asp`\
 ASP.NET: `aspx,axd,asx,asmx,ashx`\
 All IIS: `asax,ascx,ashx,asmx,aspx,axd,browser,cd,compile,config,cs,vb,csproj,vbproj,disco,vsdisco,dsdgm,dsprototype,dll,licx,webinfo,master,mdb,ldb,mdf,msgx,svc,resrouce,resx,sdm,sdmDocument,sitemap,skin,sln,soap,asa,imDitto,cdx,cer,idc,shtm,shtm,stm,css,htm,html`\
-CSS: `css\
+CSS: `css`\
 Coldfusion: `cfm`\
 Erlang: `yaws`\
 Flash: `swf`\
