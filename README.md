@@ -248,7 +248,7 @@ Coldfusion: `cfm`\
 Erlang: `yaws`\
 Flash: `swf`\
 HTML: `html,htm,xhtml,jhtml`\
-Java: `jsp,jspx,wss,do,action`\
+Java/Tomcat: `jsp,jspx,wss,do,action`\
 JavaScript: `js`\
 Perl: `pl`\
 `PHP,php,php4,php3,phtml`\
