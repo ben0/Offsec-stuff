@@ -213,7 +213,7 @@ Impacket RPCDump: `rpcdump.py $IP`
 Metasploit Endpoint_mapper: `use auxiliary/scanner/dcerpc/endpoint_mapper`,`auxiliary/scanner/dcerpc/hidden`,`auxiliary/scanner/dcerpc/management`,`auxiliary/scanner/dcerpc/tcp_dcerpc_auditor`\
 
 ### LDAP TCP/389-636:
-
+Install UserEnum_LDAP: `git clone -v https://github.com/sensepost/UserEnum /opt/UserEnum_LDAP`\
 LDAP Windows User enumeration (SensePost-UserEnum): `UserEnum_LDAP.py 10.10.10.4 Contoso.local userslist.txt`
 
 ### RSH TCP/514:
