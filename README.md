@@ -215,6 +215,8 @@ Metasploit Endpoint_mapper: `use auxiliary/scanner/dcerpc/endpoint_mapper`,`auxi
 ### LDAP TCP/389-636:
 Install UserEnum_LDAP: `git clone -v https://github.com/sensepost/UserEnum /opt/UserEnum_LDAP`\
 LDAP Windows User enumeration (SensePost-UserEnum): `UserEnum_LDAP.py 10.10.10.4 Contoso.local userslist.txt`
+LDAPSearch rootDSE query to get namingContext(no bind): `ldapsearch -x -h 10.10.10.100 -b '' -s base '(objectclass=*)' | grep namingContexts`\
+ldapsearch -x -h 192.168.199.10 -b 'dc=myaddomain,dc=myinetdomain,dc=net' -s base -D 'jsmith@myaddomain.myinetdomain.net' -W
 
 ### RSH TCP/514:
 
