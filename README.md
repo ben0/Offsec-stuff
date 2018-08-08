@@ -149,7 +149,8 @@ Using NC for port scans:`nc -nvv -w 1 -z $IP 3388-3390`
 
 #### Scripts:
 
-Categories: `auth, broadcast, default.  discovery, dos, exploit, external, fuzzer, intrusive, malware, safe, version, and vuln`\
+Categories: `auth, broadcast, default, discovery, safe, version` \
+`dos, exploit, external, fuzzer, intrusive, malware, vuln`\
 Update scripts: `--script-updatedb`
 Default: `-sC`
 Vulnerability: `--script vuln`
@@ -292,13 +293,13 @@ KWProcessor - Keyboard walks
 
 ### Fuzzing:
 
-Wfuzz - The web brute forcer\
-wfuzz -c -w /usr/share/wfuzz/wordlist/general/megabeast.txt $ip:60080/?FUZZ=test\
-wfuzz -c --hw 114 -w /usr/share/wfuzz/wordlist/general/megabeast.txt $ip:60080/?page=FUZZ\
-wfuzz -c -w /usr/share/wfuzz/wordlist/general/common.txt "$ip:60080/?page=mailer&mail=FUZZ"\
-wfuzz -c -w /usr/share/seclists/Discovery/Web_Content/common.txt --hc 404 $ip/FUZZ\
-Recurse level 3
-wfuzz -c -w /usr/share/seclists/Discovery/Web_Content/common.txt -R 3 --sc 200 $ip/FUZZ\
+`wfuzz - The web brute forcer`\
+`wfuzz -c -w /usr/share/wfuzz/wordlist/general/megabeast.txt $ip:60080/?FUZZ=test`\
+`wfuzz -c --hw 114 -w /usr/share/wfuzz/wordlist/general/megabeast.txt $ip:60080/?page=FUZZ`\
+`wfuzz -c -w /usr/share/wfuzz/wordlist/general/common.txt "$ip:60080/?page=mailer&mail=FUZZ"`\
+`wfuzz -c -w /usr/share/seclists/Discovery/Web_Content/common.txt --hc 404 $ip/FUZZ
+Recurse level 3'\
+`wfuzz -c -w /usr/share/seclists/Discovery/Web_Content/common.txt -R 3 --sc 200 $ip/FUZZ`\
 
 ### Sharepoint enum:
 
