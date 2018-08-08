@@ -1,7 +1,7 @@
 # Offensive security/penetration testing:
 
 ## Tools needed:
-Enum4linux: ` git clone -v --mirror https://github.com/portcullislabs/enum4linux /opt/enum4linux-git
+Enum4linux: ` git clone -v https://github.com/portcullislabs/enum4linux /opt/enum4linux-git
 `\
 
 ## Linux commands:
