@@ -1,5 +1,9 @@
 # Offensive security/penetration testing:
 
+## Tools needed:
+Enum4linux: ` git clone -v --mirror https://github.com/portcullislabs/enum4linux /opt/enum4linux-git
+`\
+
 ## Linux commands:
 
 Export the IP of the target to a bash variable: `export ip=192.168.1.100`\
