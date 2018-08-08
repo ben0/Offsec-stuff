@@ -160,9 +160,9 @@ RPC scripts: `nmap --script="rpc*" 10.10.10.33`
 
 # Infrastructure hacking
 
-## Windows Enum:
+## Windows Enumeration process:
 
-SMB Fingerprinting methods: `smbclient -L //10.10.10.9`,`Enum4linux -a 10.10.10.9`,`RPCClient -U “” 10.10.10.9`,
+SMB Fingerprinting methods: `smbclient -L //$IP`,`Enum4linux -a $IP`,`RPCClient -U “” $IP`,
 `nmap 10.10.10.9 --script smb-os-discovery.nse`\
 SMB share enumeration`nmap -p 445 -vv --script=smb-enum-shares.nse,smb-enum-users.nse 10.10.10.9`\
 SMB Mount share: `smbclient //10.10.10.9/share -I $IP -N`\
