@@ -2,7 +2,8 @@
 
 ## Tools needed:
 Enum4linux: `git clone -v https://github.com/portcullislabs/enum4linux /opt/enum4linux-git`\
-Nullinux: `git clone -v https://github.com/m8r0wn/nullinux /opt/nullinux-git`
+Nullinux: `git clone -v https://github.com/m8r0wn/nullinux /opt/nullinux-git`\
+Install UserEnum_LDAP: `git clone -v https://github.com/sensepost/UserEnum /opt/UserEnum_LDAP`
 
 ## Linux commands:
 
@@ -213,15 +214,15 @@ Enumerate user using Finger: `finger -sl username@$IP`
 Netbios Windows User enumeration (SensePost-UserEnum_NBS): `UserEnum_NBS.py 10.10.16.202 10.10.10.4 Contoso userslist.txt`\
 RPC Windows User enumeration (SensePost-UserEnum_NBS):`UserEnum_RPC.py 10.10.10.4 userslist.txt`\
 Impacket RPCDump: `rpcdump.py $IP`
+
 ### Micrsoft RPC/Endpoint mapper:
 
 Metasploit Endpoint_mapper: `use auxiliary/scanner/dcerpc/endpoint_mapper`,`auxiliary/scanner/dcerpc/hidden`,`auxiliary/scanner/dcerpc/management`,`auxiliary/scanner/dcerpc/tcp_dcerpc_auditor`\
 
 ### LDAP TCP/389-636:
-Install UserEnum_LDAP: `git clone -v https://github.com/sensepost/UserEnum /opt/UserEnum_LDAP`\
-LDAP Windows User enumeration (SensePost-UserEnum): `UserEnum_LDAP.py 10.10.10.4 Contoso.local userslist.txt`
-LDAPSearch rootDSE query to get namingContext(no bind): `ldapsearch -x -h 10.10.10.100 -b '' -s base '(objectclass=*)' | grep namingContexts`\
-ldapsearch -x -h 192.168.199.10 -b 'dc=myaddomain,dc=myinetdomain,dc=net' -s base -D 'jsmith@myaddomain.myinetdomain.net' -W
+LDAP Windows User enumeration (SensePost-UserEnum): `UserEnum_LDAP.py $IP Contoso.local userslist.txt`
+LDAPSearch rootDSE query to get namingContext(no bind): `ldapsearch -x -h $IP -b '' -s base '(objectclass=*)' | grep namingContexts`\
+LDAPSearch for all object: `ldapsearch -x -h $IP -b "dc=example,dc=com" -s sub "objectclass=*"`\
 
 ### RSH TCP/514:
 
