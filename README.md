@@ -2,7 +2,7 @@
 
 ## Tools needed:
 Enum4linux: `git clone -v https://github.com/portcullislabs/enum4linux /opt/enum4linux-git`\
-Nullinux: `git clone -v https://github.com/m8r0wn/nullinux /opt/nullinux-git`\
+Nullinux: `git clone -v https://github.com/m8r0wn/nullinux /opt/nullinux-git`
 
 ## Linux commands:
 
