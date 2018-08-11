@@ -1,8 +1,8 @@
 # Offensive security/penetration testing:
 
 ## Tools needed:
-Enum4linux: `git clone -v https://github.com/portcullislabs/enum4linux /opt/enum4linux-git`\
-Nullinux: `git clone -v https://github.com/m8r0wn/nullinux /opt/nullinux-git`\
+Enum4linux:  `git clone -v https://github.com/portcullislabs/enum4linux /opt/enum4linux-git`\
+Nullinux:    `git clone -v https://github.com/m8r0wn/nullinux /opt/nullinux-git`\
 Install UserEnum_LDAP: `git clone -v https://github.com/sensepost/UserEnum /opt/UserEnum_LDAP`
 
 ## Linux commands:
@@ -90,7 +90,7 @@ sudo iptables -t mangle -F\
 sudo iptables -F\
 sudo iptables -X`
 
-Just flush: `iptables -F`\
+Just flush:     `iptables -F`\
 Clear counters: `iptables -Z`
 
 ## Information discovery
@@ -132,8 +132,11 @@ Useful options:\
 
 #### Port Scanning:
 
-Thorough TCP/UDP: `Nmap -sS -sU -v -p1-65535 192.168.0.33`\
-TCP with OS discovery (-O), service scanning (-sV), script scanning (-sC), traceroute( --traceroute): `Nmap -A -T4 -p1-65535 \192.168.0.33 -oA output`\
+Initial TCP Port scan: `nmap -sT -vv -p- $IP -oA tcp-port-scan`\
+TCP Port scan: `nmap -sV -sC -vv -p- $IP -oA tcp-port-scan`\
+
+Thorough TCP/UDP: `Nmap -sS -sU -v -p1-65535 $IP`\
+TCP with OS discovery (-O), service scanning (-sV), script scanning (-sC), traceroute( --traceroute), Import hosts to scan(-iL)
 `nmap -n -vvvv -sT -p0-65535 -A -iL live_host.txt -oA nmap_tcp_scan`\
 `nmap -n -vvvv -Pn -sU -F -iL live_host.txt -oA nmap_udp_scan`
 
