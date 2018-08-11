@@ -169,8 +169,9 @@ RPC scripts: `nmap --script="rpc*" 10.10.10.33`
 
 SMB Fingerprinting methods: `smbclient -L //$IP`,`Enum4linux -a $IP`,`RPCClient -U “” $IP`,
 `nmap 10.10.10.9 --script smb-os-discovery.nse`\
-SMB share enumeration`nmap -p 445 -vv --script=smb-enum-shares.nse,smb-enum-users.nse 10.10.10.9`\
-SMB Mount share: `smbclient //10.10.10.9/share -I $IP -N`\
+SMB share enumeration`nmap -p 445 -vv --script=smb-enum-shares.nse,smb-enum-users.nse $IP`\
+SMB Mount share: `smbclient //$IP/share -I $IP -N`\
+SMB Browse: `smbclient //$IP/Users -U username`\
 RPCClient authenticated scan: `rpcclient --user="<Username>" --command=enumprivs 10.10.10.9`\
 SMB Nmap authenticated scan: `nmap -sV -Pn -vv -p445 10.10.10.9 --script-args smbuser={},smbpass={} --script='(smb*) and safe ' `\
 SMB Nmap authenticates open: `nmap -p445 192.168.10.0/24 -v --script smb-enum-shares --script-args smbuser={},smbpass={}   -oA nmap-auth-shares`\
