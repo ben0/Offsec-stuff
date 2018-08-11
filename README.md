@@ -100,11 +100,12 @@ Clear counters: `iptables -Z`
 
 Google search subdomains: `site:microsoft.com`\
 Google operators: inurl, intitle\
-Shodan\
+Shodan.io\
+Censys.io\
 Google - https://www.exploit-db.com/google-hacking-database/ \
 Netcraft\
 Whois:`./whois`\
-Online checking: `http://crt.sh`
+Online Certificate checking: `http://crt.sh`
 
 ### Active:
 
