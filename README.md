@@ -18,11 +18,10 @@ Have a service start at boot: `systemctl enable ssh`\
 Unzip a tar'd gzip file: `tar -xzvf file.tar.gz` (bzip: -j, xz: -J, --lzip, --lzma, --lzop, Zip/Gzip: -z, Compress: -Z)\
 Search bash command history: `history | grep {condition}`\
 Use a bash loop to find the IP address behind each host:`for url in $(cat list.txt); do host $url; done`\
-echo -n "ZGVjb2RlIHRoaXM=" | base64 -d\
+Base64 decode linux: `echo -n "ZGVjb2RlIHRoaXM=" | base64 -d`\
 Decode Hexidecimal Encoded string: `echo -n "54 68 6973206973206120 68657820 656E636F 64656420 7374 7269 6E 67" | xxd -r -ps`\
 Mount NFS Share: `mount 10.10.10.45:/vol/nfsshare /mnt/nfs`
-Example bash stuff:\
-`cat access.log | cut -d " " -f 1 | sort | uniq -c | wc -l`
+Example bash stuff: `cat access.log | cut -d " " -f 1 | sort | uniq -c | wc -l`
 
 ## Windows/CMD commands:
 Export the IP of the target to a Windows variables: `set IP=192.168.1.100`\
@@ -169,8 +168,8 @@ RPC scripts: `nmap --script="rpc*" 10.10.10.33`
 ## Windows Enumeration process:
 
 SMB Enumeration: `nullinux -all -U 'domain\username' -P password $IP`\
-SMB Mount share: `smbclient //$IP/share -I $IP -N`\
 SMB Browse: `smbclient //$IP/Users -U username`\
+Linux Mount SMB: `mount -t cifs -o username=user,password=pass,domain=domain //$IP/share /mnt`\
 RPCClient authenticated scan: `rpcclient --user="<Username>" --command=enumprivs $IP`\
 SMB Nmap authenticated scan: `nmap -sV -Pn -vv -p445 $IP --script-args smbuser={},smbpass={} --script='(smb*) and safe ' `\
 SMB Nmap authenticates open: `nmap -p445 192.168.10.0/24 -v --script smb-enum-shares --script-args smbuser={},smbpass={}   -oA nmap-auth-shares`\
