@@ -447,6 +447,11 @@ Weevely
 ### Executables
 Backdoor factory
 
+## Port forwarding/masquerading
+
+### SOCAT
+`socat TCP-LISTEN:80,fork TCP:192.168.1.1:80`\
+
 ## Pivoting
 
 ### SSH with Proxychains
