@@ -12,7 +12,7 @@ Sherlock: `git clone -v https://github.com/rasta-mouse/Sherlock /opt/Sherlock`
 
 Export the IP of the target to a bash variable: `export ip=192.168.1.100`\
 Ping the target: `ping $IP`\
-Find the location of a file: `locate hydra`\
+Find the location of a file: `locate `\
 Use the $PATH environment variable to find a file: `which hydra`\
 Use the $PATH and $MANPATH environment variable to find a file: `whereis more`\
 Show only listening sockets with info: `netstat -tunlap`\
@@ -269,6 +269,7 @@ LFI: `http://www.insomniasec.com/publications/LFI%20With%20PHPInfo%20Assistance.
 Exchange tools: `Brute-EWS -TargetList .\userids.txt -ExchangeVersion 2007_SP1  -ewsPath "https://owa.domain.com/EWS/Exchange.asmx" -Password "omg123" -Domain "domain.com"`
 HTTP Brute force (Simple post): `hydra -l admin -P /usr/share/wordlists/rockyou.txt $IP -V http-form-post '/login:username=^USER^&password=^PASS^&submit=Login:F=failed' -t 40
 `\
+Apache Tomcat Manager: `hydra -L tomcat-users.txt -P rockyou.txt -f $IP http-get /manager/html`
 
 ### SQL TCP/1433:
 
