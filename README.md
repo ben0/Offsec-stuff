@@ -343,12 +343,9 @@ KWProcessor - Keyboard walks
 ### Fuzzing:
 
 `wfuzz - The web brute forcer`\
-`wfuzz -c -w /usr/share/wfuzz/wordlist/general/megabeast.txt $ip:60080/?FUZZ=test`\
-`wfuzz -c --hw 114 -w /usr/share/wfuzz/wordlist/general/megabeast.txt $ip:60080/?page=FUZZ`\
-`wfuzz -c -w /usr/share/wfuzz/wordlist/general/common.txt "$ip:60080/?page=mailer&mail=FUZZ"`\
-`wfuzz -c -w /usr/share/seclists/Discovery/Web_Content/common.txt --hc 404 $ip/FUZZ
-Recurse level 3'`\
-`wfuzz -c -w /usr/share/seclists/Discovery/Web_Content/common.txt -R 3 --sc 200 $ip/FUZZ`
+
+Cookie fuzzer: `wfuzz -c --hs incorrect -z file,/usr/share/wordlists/wfuzz/general/medium.txt -H "Cookie: password=FUZZ" http://$IP`\
+GET fuzzer: wfuzz -c -z file,/usr/share/wordlists/wfuzz/general/medium.txt http://$IP/?FUZZ=test`
 
 ### Sharepoint enum:
 
