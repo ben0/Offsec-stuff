@@ -345,7 +345,7 @@ KWProcessor - Keyboard walks
 `wfuzz - The web brute forcer`\
 
 Cookie fuzzer: `wfuzz -c --hs incorrect -z file,/usr/share/wordlists/wfuzz/general/medium.txt -H "Cookie: password=FUZZ" http://$IP`\
-GET fuzzer: wfuzz -c -z file,/usr/share/wordlists/wfuzz/general/medium.txt http://$IP/?FUZZ=test`
+HTTP GET Parameter fuzzer: `wfuzz -c -z file,/usr/share/wordlists/wfuzz/general/medium.txt http://$IP/?FUZZ=test`
 
 ### Sharepoint enum:
 
