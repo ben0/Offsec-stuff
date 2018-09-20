@@ -243,7 +243,9 @@ Metasploit Endpoint_mapper: `use auxiliary/scanner/dcerpc/endpoint_mapper`,`auxi
 ### LDAP TCP/389-636:
 LDAP Windows User enumeration (SensePost-UserEnum): `UserEnum_LDAP.py $IP Contoso.local userslist.txt`
 LDAPSearch rootDSE query to get namingContext(no bind): `ldapsearch -x -h $IP -b '' -s base '(objectclass=*)' | grep namingContexts`\
-LDAPSearch for all object (bind connection): `ldapsearch -x -h $IP -b 'dc=active,dc=htb' -D 'username' -w 'password' '(objectclass=*)'
+LDAPSearch for all objects (anonymous): `ldapsearch -x -h $IP -b 'dc=domain,dc=local' -D '' -w '' '(objectclass=*)'
+`\
+LDAPSearch for all object (bind connection): `ldapsearch -x -h $IP -b 'dc=domain,dc=local' -D 'username' -w 'password' '(objectclass=*)'
 `
 ### RSH TCP/514:
 
