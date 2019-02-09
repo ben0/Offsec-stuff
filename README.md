@@ -5,7 +5,7 @@ Enum4linux:  `git clone -v https://github.com/portcullislabs/enum4linux /opt/enu
 Nullinux:    `git clone -v https://github.com/m8r0wn/nullinux /opt/nullinux-git`\
 Install UserEnum_LDAP: `git clone -v https://github.com/sensepost/UserEnum /opt/UserEnum_LDAP`\
 OWA Toolkit EWS Brute: `git clone -v https://github.com/johnnyDEP/OWA-Toolkit /opt/OWA-Toolkit`\
-MailSniper: `git clone -v https://github.com/dafthack/MailSniper /opt/MailSniper`
+MailSniper: `git clone -v https://github.com/dafthack/MailSniper /opt/MailSniper`\
 Sherlock: `git clone -v https://github.com/rasta-mouse/Sherlock /opt/Sherlock`
 
 ## Linux commands:
