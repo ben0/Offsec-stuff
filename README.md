@@ -85,13 +85,13 @@ Grab a packet capture on port 80: `tcpdump  -i ens0 -xxNNSs 1514 -w output.pcap`
 
 ### Flush, delete, accept all traffic:
 
-`sudo iptables -P INPUT ACCEPT\
-sudo iptables -P FORWARD ACCEPT\
-sudo iptables -P OUTPUT ACCEPT\
-sudo iptables -t nat -F\
-sudo iptables -t mangle -F\
-sudo iptables -F\
-sudo iptables -X`
+`sudo iptables -P INPUT ACCEPT`\
+`sudo iptables -P FORWARD ACCEPT`\
+`sudo iptables -P OUTPUT ACCEPT`\
+`sudo iptables -t nat -F`\
+`sudo iptables -t mangle -F`\
+`sudo iptables -F`\
+`sudo iptables -X`
 
 Just flush:     `iptables -F`\
 Clear counters: `iptables -Z`
