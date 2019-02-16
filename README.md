@@ -220,6 +220,10 @@ Enumerate user using Finger: `finger -sl username@$IP`
 Telnet to SMTP server: `telnet {ip} {port}`\
 Commands: user, pass, list, retr
 
+### NFS TCP/UDP/111
+
+Show exported mounts: `showmoints -e $ip`
+
 ### Netbios TCP/135/138/139:
 
 Netbios Windows User enumeration (SensePost-UserEnum_NBS): `UserEnum_NBS.py 10.10.16.202 10.10.10.4 Contoso userslist.txt`\
