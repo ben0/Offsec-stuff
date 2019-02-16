@@ -23,7 +23,8 @@ Search bash command history: `history | grep {condition}`\
 Use a bash loop to find the IP address behind each host:`for url in $(cat list.txt); do host $url; done`\
 Base64 decode linux: `echo -n "ZGVjb2RlIHRoaXM=" | base64 -d`\
 Decode Hexidecimal Encoded string: `echo -n "54 68 6973206973206120 68657820 656E636F 64656420 7374 7269 6E 67" | xxd -r -ps`\
-Mount NFS Share: `mount 10.10.10.45:/vol/nfsshare /mnt/nfs`
+Mount NFS Share: `Mount -t nfs 10.10.10.45:/vol/nfsshare /mnt/nfs`\
+
 Example bash stuff: `cat access.log | cut -d " " -f 1 | sort | uniq -c | wc -l`
 
 ## Windows/CMD commands:
