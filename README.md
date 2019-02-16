@@ -167,7 +167,12 @@ Default: `-sC`
 Vulnerability: `--script vuln`
 Categories: auth, broadcast, brute, default, discovery, dos, exploit, external, fuzzer, intrusive, malvware, safe, version, vuln
 Example: `nmap --script "default and safe"`\
-RPC scripts: `nmap --script="rpc*" 10.10.10.33`
+RPC scripts: `nmap --script="rpc*" 10.10.10.33`\
+
+#### Searchsploit
+
+Copy the sploit to current folder: `searchsploit -m [sploit to copy]`\
+Update searchsploit: `searchsploit -u`\
 
 # Infrastructure hacking
 
