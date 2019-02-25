@@ -3,10 +3,10 @@
 ## Tools needed:
 Enum4linux:  `git clone -v https://github.com/portcullislabs/enum4linux /opt/enum4linux-git`\
 Nullinux:    `git clone -v https://github.com/m8r0wn/nullinux /opt/nullinux-git`\
-Install UserEnum_LDAP: `git clone -v https://github.com/sensepost/UserEnum /opt/UserEnum_LDAP`\
-OWA Toolkit EWS Brute: `git clone -v https://github.com/johnnyDEP/OWA-Toolkit /opt/OWA-Toolkit`\
-MailSniper: `git clone -v https://github.com/dafthack/MailSniper /opt/MailSniper`\
-Sherlock: `git clone -v https://github.com/rasta-mouse/Sherlock /opt/Sherlock`
+Install UserEnum_LDAP: `git clone -v https://github.com/sensepost/UserEnum /opt/UserEnum_LDAP-git`\
+OWA Toolkit EWS Brute: `git clone -v https://github.com/johnnyDEP/OWA-Toolkit /opt/OWA-Toolkit-git`\
+MailSniper: `git clone -v https://github.com/dafthack/MailSniper /opt/MailSniper-git`\
+Sherlock: `git clone -v https://github.com/rasta-mouse/Watson /opt/Watson-git`
 
 ## Linux commands:
 
@@ -165,7 +165,7 @@ Categories: `auth, broadcast, default, discovery, safe, version` \
 Update scripts: `--script-updatedb`
 Default: `-sC`
 Vulnerability: `--script vuln`
-Categories: auth, broadcast, brute, default, discovery, dos, exploit, external, fuzzer, intrusive, malvware, safe, version, vuln
+Categories: auth, broadcast, brute, default, discovery, dos, exploit, external, fuzzer, intrusive, malware, safe, version, vuln
 Example: `nmap --script "default and safe"`\
 RPC scripts: `nmap --script="rpc*" 10.10.10.33`\
 
