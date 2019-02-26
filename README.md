@@ -38,7 +38,7 @@ Find files PSH: `gci -filter * -recurse`
 
 ### Finding files/data:
 
-Find UID 0 files root execution: `find / -perm -g=s -o -perm -4000 ! -type l -maxdepth 3 -exec ls -ld {} \\; 2>/dev/null`\
+Find UID 0 files root execution: `find / -perm -g=s -o -perm -4000 ! -type l -maxdepth 3 -exec ls -ld {} \; 2>/dev/null`\
 Linux enum: `wget https://highon.coffee/downloads/linux-local-enum.sh; chmod +x ./linux-local-enum.sh; ./linux-local-enum.sh`\
 Find executable files updated in Jan: `find / -executable -type f 2> /dev/null | egrep -v "^/bin|^/var|^/etc|^/usr" | xargs ls -lh | grep Jan`\
 Find a specific file on linux: `find /. -name suid\*`\
@@ -184,7 +184,7 @@ Linux Mount SMB: `mount -t cifs -o username=user,password=pass,domain=domain //$
 RPCClient authenticated scan: `rpcclient --user="<Username>" --command=enumprivs $IP`\
 SMB Nmap authenticated scan: `nmap -sV -Pn -vv -p445 $IP --script-args smbuser={},smbpass={} --script='(smb*) and safe ' `\
 SMB Nmap authenticates open: `nmap -p445 192.168.10.0/24 -v --script smb-enum-shares --script-args smbuser={},smbpass={}   -oA nmap-auth-shares`\
-SMB Nmap enumerate users: `nmap -sU -sS --script=smb-enum-users -p U:137,T:$IP -oA nmap-enum-users`\
+SMB Nmap enumerate users: `nmap -sU -sS --script=smb-enum-users -p U:135-139,T:135-139 $IP -oA nmap-enum-users`\
 Rid cycling: `ridenum.py $IP 500 50000 dict.txt`\
 Metasploit DCOM enumeration: `use auxiliary/scanner/dcerpc/endpoint_mapper`\
 Metasploit Hidden DCOM enumeration: `use auxiliary/scanner/dcerpc/hidden`\
@@ -231,7 +231,7 @@ Show exported mounts: `showmoints -e $ip`
 
 ### Netbios TCP/135/138/139:
 
-Netbios Windows User enumeration (SensePost-UserEnum_NBS): `UserEnum_NBS.py 10.10.16.202 10.10.10.4 Contoso userslist.txt`\
+Netbios Windows User enumeration (SensePost-UserEnum_NBS): `UserEnum_NBS.py 10.10.10.4 Contoso userslist.txt`\
 RPC Windows User enumeration (SensePost-UserEnum_NBS):`UserEnum_RPC.py 10.10.10.4 userslist.txt`\
 Impacket RPCDump: `rpcdump.py $IP`
 
