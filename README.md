@@ -357,7 +357,15 @@ KWProcessor - Keyboard walks
 
 Cookie fuzzer: `wfuzz -c --hs incorrect -z file,/usr/share/wordlists/wfuzz/general/medium.txt -H "Cookie: password=FUZZ" http://$IP`\
 HTTP GET Parameter fuzzer: `wfuzz -c -z file,/usr/share/wordlists/wfuzz/general/medium.txt http://$IP/?FUZZ=test`\
-Subdomain fuzzing: `wfuzz -w /usr/share/wordlists/dirb/common.txt --hc 404,400,301 -u https://hostname.server -H "Host: FUZZ.hostname.server" `
+Subdomain fuzzing: `wfuzz -w /usr/share/wordlists/dirb/common.txt -c --hc 404,400,301 -hl 222 -u http://$ip -H "Host: FUZZ.domain.name"`
+
+Notes: `-c: colours`\
+`-hc: hide codes`\
+`-hl: hide length`\
+`-hs: hide regex or -ss: show regex`\
+`-w: wordlist`\
+`-u: url or ip address in this case`\
+`-H: headers`
 
 ### Sharepoint enum:
 
