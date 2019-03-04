@@ -227,7 +227,7 @@ Commands: user, pass, list, retr
 
 ### NFS TCP/UDP/111
 
-Show exported mounts: `showmoints -e $ip`
+Show exported mounts: `showmount -e $ip`
 
 ### Netbios TCP/135/138/139:
 
