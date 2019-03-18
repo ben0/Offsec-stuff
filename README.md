@@ -233,7 +233,12 @@ Show exported mounts: `showmount -e $ip`
 
 Netbios Windows User enumeration (SensePost-UserEnum_NBS): `UserEnum_NBS.py 10.10.10.4 Contoso userslist.txt`\
 RPC Windows User enumeration (SensePost-UserEnum_NBS):`UserEnum_RPC.py 10.10.10.4 userslist.txt`\
-Impacket RPCDump: `rpcdump.py $IP`
+Impacket RPCDump: `rpcdump.py $IP`\
+RPCClient: `rpcclient -U "" -p "" -d {domain/workgroup from smbclient -L} -H $ip`\
+SMBClient: `smbclient -N -L $ip`\
+SMBClient: `smbclient -L //hostname/sharename -I $ip -N`\
+Enum4linux: `enum4linux -a $ip`\
+RPCinfo: `rpcinfo $ip `
 
 ### SNMP TCP/161:
 
