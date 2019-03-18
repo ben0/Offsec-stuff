@@ -238,7 +238,8 @@ RPCClient: `rpcclient -U "" -p "" -d {domain/workgroup from smbclient -L} -H $ip
 SMBClient: `smbclient -N -L $ip`\
 SMBClient: `smbclient -L //hostname/sharename -I $ip -N`\
 Enum4linux: `enum4linux -a $ip`\
-RPCinfo: `rpcinfo $ip `
+RPCinfo: `rpcinfo $ip `\
+Nmap: `nmap -sT -sV -sC -p139 $ip`
 
 ### SNMP TCP/161:
 
