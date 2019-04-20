@@ -201,6 +201,10 @@ Enumerate SSL/TLS: `SSLScan 10.10.10.9:443`
 
 ### FTP TCP/21:
 
+### SSH TCP/22:
+
+Weak keys?
+
 ### SMTP TCP/25:
 
 Metasploit: `auxiliary/scanner/smtp/smtp_enum`\
