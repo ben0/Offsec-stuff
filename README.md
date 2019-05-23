@@ -51,7 +51,9 @@ Exif information: `exiftool $file`\
 Search for other files/magic info in a file: `binwalk $file`\
 Extract data from a file: `bulk_extractor $file -O {output dir}`\
 Install steghide: `apt-get install steghide`\
-Extract data with steghide: `steghide extract -sf picture.jpg`
+Extract data with steghide: `steghide extract -sf picture.jpg`\
+LSPst: `lspst filename.pst`\
+ReadPST: `readpst -DSr -o mailbox-export`
 
 ### Netcat/nc # nc.traditional or nc?
 
