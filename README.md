@@ -6,7 +6,7 @@ Nullinux:    `git clone -v https://github.com/m8r0wn/nullinux /opt/nullinux-git`
 Install UserEnum_LDAP: `git clone -v https://github.com/sensepost/UserEnum /opt/UserEnum_LDAP-git`\
 OWA Toolkit EWS Brute: `git clone -v https://github.com/johnnyDEP/OWA-Toolkit /opt/OWA-Toolkit-git`\
 MailSniper: `git clone -v https://github.com/dafthack/MailSniper /opt/MailSniper-git`\
-Sherlock: `git clone -v https://github.com/rasta-mouse/Watson /opt/Watson-git`
+Sherlock: `git clone -v https://github.com/rasta-mouse/Watson /opt/Watson-git`\
 RecurseBuster: `go get -u github.com/c-sto/recursebuster`
 
 ## Linux commands:
