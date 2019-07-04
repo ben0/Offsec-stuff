@@ -9,6 +9,31 @@ MailSniper: `git clone -v https://github.com/dafthack/MailSniper /opt/MailSniper
 Sherlock: `git clone -v https://github.com/rasta-mouse/Watson /opt/Watson-git`\
 RecurseBuster: `go get -u github.com/c-sto/recursebuster`
 
+### PowerShell
+```
+wget http://http.us.debian.org/debian/pool/main/libu/liburcu/liburcu4_0.9.3-1_amd64.deb && dpkg -i liburcu4_0.9.3-1_amd64.deb
+wget http://http.us.debian.org/debian/pool/main/u/ust/liblttng-ust-ctl2_2.9.0-2+deb9u1_amd64.deb && dpkg -i liblttng-ust-ctl2_2.9.0-2+deb9u1_amd64.deb
+wget http://http.us.debian.org/debian/pool/main/u/ust/liblttng-ust0_2.9.0-2+deb9u1_amd64.deb && dpkg -i liblttng-ust0_2.9.0-2+deb9u1_amd64.deb
+wget http://ftp.us.debian.org/debian/pool/main/i/icu/libicu57_57.1-6+deb9u2_amd64.deb && dpkg -i libicu57_57.1-6+deb9u2_amd64.deb 
+wget http://http.us.debian.org/debian/pool/main/i/icu/icu-devtools_57.1-6+deb9u2_amd64.deb && dpkg -i icu-devtools_57.1-6+deb9u2_amd64.deb 
+
+apt update && apt -y install curl gnupg apt-transport-https
+curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch main" > /etc/apt/sources.list.d/powershell.list
+apt update
+apt -y install powershell
+```
+
+### VSCode
+```
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+sudo apt-get install apt-transport-https
+sudo apt-get update
+sudo apt-get install code # or code-insiders
+```
+
 ## Linux commands:
 
 Export the IP of the target to a bash variable: `export ip=192.168.1.100`\
