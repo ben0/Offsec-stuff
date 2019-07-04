@@ -321,15 +321,11 @@ set -g visual-activity on
 
 ## Set defaults
 set -g default-terminal screen-256color
-set -g history-limit 5000
+set -g history-limit 10000
 
 ## Default windows titles
 set -g set-titles on
 set -g set-titles-string '#(whoami)@#H - #I:#W'
-
-## Left hand side
-set -g status-left-length '200'
-set -g status-left "#[fg=green,bold]#(whoami)#[default]@#[fg=yellow,dim]#H#[fg=green,dim][#[fg=yellow]#(cut -d ' ' -f 2 /proc/loadavg)#[fg=green,dim]] #[fg=brightblue]#(ifconfig eth0 | grep 'inet ' | awk '{print \"eth0:\" $2}')#(ifconfig tap0 | grep 'inet ' | awk '{print \"tap0:\" $2}') #(ifconfig tun0 | grep 'inet ' | awk '{print \"tun0:\" $2}') "
 
 ## Last window switch
 bind-key C-a last-window
@@ -341,16 +337,19 @@ bind r source-file /etc/tmux.conf
 ## Load custom sources
 #source ~/.bashrc   #(issues if you use /bin/bash & Debian)
 
-EOF
-[ -e /bin/zsh ] \
-  && echo -e '## Use ZSH as default shell\nset-option -g default-shell /bin/zsh\n' >> "${file}"
-cat <<EOF >> "${file}"
+## Use ZSH as default shell
+set-option -g default-shell /bin/zsh
+
 ## Show tmux messages for longer
 set -g display-time 3000
 
 ## Status bar is redrawn every minute
 set -g status-interval 60
 
+## Mouse mode options
+set -g mouse on
+bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'select-pane -t=; copy-mode -e; send-keys -M'"
+bind -n WheelDownPane select-pane -t= \; send-keys -M
 
 #-Theme------------------------------------------------------------------------
 ## Default colours
@@ -358,8 +357,8 @@ set -g status-bg black
 set -g status-fg white
 
 ## Left hand side
-set -g status-left-length '34'
-set -g status-left '#[fg=green,bold]#(whoami)#[default]@#[fg=yellow,dim]#H #[fg=green,dim][#[fg=yellow]#(cut -d " " -f 1-3 /proc/loadavg)#[fg=green,dim]]'
+set -g status-left-length '200'
+set -g status-left "#[fg=green,bold]#(whoami)#[default]@#[fg=yellow,dim]#H#[fg=green,dim][#[fg=yellow]#(cut -d ' ' -f 2 /proc/loadavg)#[fg=green,dim]] #[fg=brightblue]#(ifconfig eth0 | grep 'inet ' | awk '{print \"eth0:\" $2}')#(ifconfig tap0 | grep 'inet ' | awk '{print \"tap0:\" $2}') #(ifconfig tun0 | grep 'inet ' | awk '{print \"tun0:\" $2}') "
 
 ## Inactive windows in status bar
 set-window-option -g window-status-format '#[fg=red,dim]#I#[fg=grey,dim]:#[default,dim]#W#[fg=grey,dim]'
