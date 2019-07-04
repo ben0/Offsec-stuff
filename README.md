@@ -7,7 +7,8 @@ Install UserEnum_LDAP: `git clone -v https://github.com/sensepost/UserEnum /opt/
 OWA Toolkit EWS Brute: `git clone -v https://github.com/johnnyDEP/OWA-Toolkit /opt/OWA-Toolkit-git`\
 MailSniper: `git clone -v https://github.com/dafthack/MailSniper /opt/MailSniper-git`\
 Sherlock: `git clone -v https://github.com/rasta-mouse/Watson /opt/Watson-git`\
-RecurseBuster: `go get -u github.com/c-sto/recursebuster`
+RecurseBuster: `go get -u github.com/c-sto/recursebuster`\
+JTR: `git clone https://github.com/magnumripper/JohnTheRipper /opt/john-git`
 
 ### PowerShell
 ```
