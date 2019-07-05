@@ -8,7 +8,13 @@ OWA Toolkit EWS Brute: `git clone -v https://github.com/johnnyDEP/OWA-Toolkit /o
 MailSniper: `git clone -v https://github.com/dafthack/MailSniper /opt/MailSniper-git`\
 Sherlock: `git clone -v https://github.com/rasta-mouse/Watson /opt/Watson-git`\
 RecurseBuster: `go get -u github.com/c-sto/recursebuster`\
-JTR: `git clone https://github.com/magnumripper/JohnTheRipper /opt/john-git`
+JTR: `git clone https://github.com/magnumripper/JohnTheRipper /opt/john-git`\
+SSH Vulnerable keys: `git clone https://github.com/mgit-at/ssh-vulnkey /opt/ssh-vuln-git`\
+Impacket: `git clone https://github.com/SecureAuthCorp/impacket /opt/impacket-git`\
+Impacket - Windows: `git clone https://github.com/maaaaz/impacket-examples-windows /opt/impacket-examples-compiled`\
+Seclists: `git clone https://github.com/danielmiessler/SecLists /opt/seclists-git`
+
+
 
 ### PowerShell
 ```
