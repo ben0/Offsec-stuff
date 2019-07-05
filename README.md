@@ -19,7 +19,7 @@ Seclists: `git clone https://github.com/danielmiessler/SecLists /opt/seclists-gi
 Command palette: `ctrl + shift + p`\
 Quick open: `ctrl + p`\
 Material theme: `ext install material theme`\
-Material theme icons: `Material theme icons Kief Philipp Kief`
+Material theme icons: `Material theme icons Kief Philipp Kief`\
 Indent rainbow: `indent-rainbow oderwat`
 Config:
 ```
