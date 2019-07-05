@@ -14,7 +14,33 @@ Impacket: `git clone https://github.com/SecureAuthCorp/impacket /opt/impacket-gi
 Impacket - Windows: `git clone https://github.com/maaaaz/impacket-examples-windows /opt/impacket-examples-compiled`\
 Seclists: `git clone https://github.com/danielmiessler/SecLists /opt/seclists-git`
 
+## VSCode:
 
+Command palette: `ctrl + shift + p`\
+Quick open: `ctrl + p`\
+Material theme: `ext install material theme`\
+Material theme icons: `Material theme icons Kief Philipp Kief`
+Indent rainbow: `indent-rainbow oderwat`
+Config:
+```
+"indentRainbow.colors": [
+  "rgba(16,16,16,0.1)",
+  "rgba(16,16,16,0.2)",
+  "rgba(16,16,16,0.3)",
+  "rgba(16,16,16,0.4)",
+  "rgba(16,16,16,0.5)",
+  "rgba(16,16,16,0.6)",
+  "rgba(16,16,16,0.7)",
+  "rgba(16,16,16,0.8)",
+  "rgba(16,16,16,0.9)",
+  "rgba(16,16,16,1.0)"
+]
+```
+Bracket pair coloriser: `Bracket pair coloriser Coenraad`\
+Highlight matching tag: `Highlight matching tagvincaslt`\
+Python linting - Microsoft
+C/C++ linting - Microsoft
+PowerShell - Microsoft
 
 ### PowerShell
 ```
