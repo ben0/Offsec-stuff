@@ -12,7 +12,8 @@ JTR: `git clone https://github.com/magnumripper/JohnTheRipper /opt/john-git`\
 SSH Vulnerable keys: `git clone https://github.com/mgit-at/ssh-vulnkey /opt/ssh-vuln-git`\
 Impacket: `git clone https://github.com/SecureAuthCorp/impacket /opt/impacket-git`\
 Impacket - Windows: `git clone https://github.com/maaaaz/impacket-examples-windows /opt/impacket-examples-compiled`\
-Seclists: `git clone https://github.com/danielmiessler/SecLists /opt/seclists-git`
+Seclists: `git clone https://github.com/danielmiessler/SecLists /opt/seclists-git`\
+Process spy: `https://github.com/DominicBreuker/pspy`
 
 ## VSCode:
 
