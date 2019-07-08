@@ -602,6 +602,11 @@ $cert = Get-ChildItem -Path “Cert:\CurrentUser\My” -CodeSigningCert
 
 Set-AuthenticodeSignature -FilePath “C:\Scripts\MyScript.ps1” -Certificate $cert
 
+Bypass EP
+PowerShell -ep bypass -file script.ps1
+Execute script contents directly
+Invoke-command with script block {} 
+Use stdin and GC: Get-Content .\file.ps1 | PowerShell.exe –NoProfile –Command -
 ### Firewall rule:
 ```
 New-NetFirewallRule -DisplayName "name" -RemoteAddress -Direction Outbound -Action Block -Enabled True
