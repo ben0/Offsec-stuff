@@ -598,6 +598,10 @@ sET-ItEM ( 'V'+'aR' + 'IA' + 'blE:1q2' + 'uZx' ) ( [TYpE]( "{1}{0}"-F'F','rE' ) 
 ```
 Version 2: `PowerShell.exe -version 2`
 
+$cert = Get-ChildItem -Path “Cert:\CurrentUser\My” -CodeSigningCert
+
+Set-AuthenticodeSignature -FilePath “C:\Scripts\MyScript.ps1” -Certificate $cert
+
 ### Firewall rule:
 ```
 New-NetFirewallRule -DisplayName "name" -RemoteAddress -Direction Outbound -Action Block -Enabled True
