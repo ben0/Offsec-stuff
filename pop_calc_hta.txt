@@ -1,4 +1,5 @@
 // rundll32.exe url.dll,FileProtocolHandler file:///C:/path/to/file/wscript-psh.hta
+// Payload: [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes('Start-Process ($ENV:windir + "\system32\calc.exe")'))
 <html>
     <head>
         <script>
