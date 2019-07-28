@@ -2,19 +2,19 @@
 #include <windows.h>
 #include <stdio.h>
 
+
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved)
 {
 	switch (ul_reason_for_call)
 	{
 	case DLL_PROCESS_ATTACH:
-		void poc();
-		break;
+		MessageBox(NULL, L"DllMain loaded - DLL_PROCESS_ATTACH", L"Success", 0);
 	case DLL_PROCESS_DETACH:
-		break;
+		MessageBox(NULL, L"DllMain loaded - DLL_PROCESS_DETACH", L"Success", 0);
 	case DLL_THREAD_ATTACH:
-		break;
+		MessageBox(NULL, L"DllMain loaded - DLL_THREAD_ATTACH", L"Success", 0);
 	case DLL_THREAD_DETACH:
-		break;
+		MessageBox(NULL, L"DllMain loaded - DLL_THREAD_DETACH", L"Success", 0);
 	}
 	return TRUE;
 }
@@ -29,7 +29,7 @@ extern "C" __declspec(dllexport) BOOL poc()
 	ZeroMemory(&pi, sizeof(pi));
 
 	WCHAR wszCommandLine[MAX_PATH];
-	wcscpy_s(wszCommandLine, L"C:\\windows\\system32\\cmd.exe");
+	wcscpy_s(wszCommandLine, L"C:\\windows\\system32\\notepad.exe");
 
 	// Start the child process. 
 	if (!CreateProcess(NULL,   // No module name (use command line)
