@@ -30,3 +30,11 @@ True   v4.0.30319     C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\Microsoft.WSMan
 # $assembly = ([appdomain]::CurrentDomain.GetAssemblies()) | ? { $_.Modules.Name -eq 'System.dll'}
 # $getTypes = $assembly.GetModules().GetTypes() | ? { $_.isPublic -eq $true -And $_.isClass -eq $true}
 # $class = $getTypes | ? {$_.Name.equals("SoundPlayer")}
+
+# Load assembly
+```
+[Reflection.Assembly]::LoadFile("c:\myDLL.dll")
+```
+```
+Add-Type -Path 'C:\myDLL.dll'
+```
