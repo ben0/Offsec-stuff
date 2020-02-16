@@ -245,12 +245,13 @@ Update searchsploit: `searchsploit -u`\
 
 ## Windows Enumeration process:
 
-SMB Enumeration: `nullinux -all -U 'domain\username' -P password $IP`\
+SMB Enumeration: `nullinux -U 'domain\username' -P password $IP`\
+SMB Enumeration (unathenticated): `nullinux $IP`\
 SMB Browse: `smbclient //$IP/Users -U username`\
 Linux Mount SMB: `mount -t cifs -o username=user,password=pass,domain=domain //$IP/share /mnt`\
-RPCClient authenticated scan: `rpcclient --user="<Username>" --command=enumprivs $IP`\
-SMB Nmap authenticated scan: `nmap -sV -Pn -vv -p445 $IP --script-args smbuser={},smbpass={} --script='(smb*) and safe ' `\
-SMB Nmap authenticates open: `nmap -p445 192.168.10.0/24 -v --script smb-enum-shares --script-args smbuser={},smbpass={}   -oA nmap-auth-shares`\
+RPCClient (authenticated): `rpcclient --user="<Username>" --command=enumprivs $IP`\
+SMB Nmap (authenticated): `nmap -sV -Pn -vv -p445 $IP --script-args smbuser={},smbpass={} --script='(smb*) and safe ' `\
+SMB Nmap (authenticated): `nmap -p445 192.168.10.0/24 -v --script smb-enum-shares --script-args smbuser={},smbpass={}   -oA nmap-auth-shares`\
 SMB Nmap enumerate users: `nmap -sU -sS --script=smb-enum-users -p U:135-139,T:135-139 $IP -oA nmap-enum-users`\
 Rid cycling: `ridenum.py $IP 500 50000 dict.txt`\
 Metasploit DCOM enumeration: `use auxiliary/scanner/dcerpc/endpoint_mapper`\
