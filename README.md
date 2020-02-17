@@ -333,7 +333,23 @@ LDAPSearch rootDSE query to get namingContext(no bind): `ldapsearch -x -h $IP -b
 LDAPSearch for all objects (anonymous): `ldapsearch -x -h $IP -b 'dc=domain,dc=local' -D '' -w '' '(objectclass=*)'
 `\
 LDAPSearch for all object (bind connection): `ldapsearch -x -h $IP -b 'dc=domain,dc=local' -D 'username' -w 'password' '(objectclass=*)'
-`
+`\
+LDAPSearch Kerberos preauth: `ldapsearch -x -h $IP -b 'dc=domain,dc=local' -D 'username' -w 'password'  (&(objectCategory=person)(objectClass=user)
+(userAccountControl:1.2.840.113556.1.4.803:=4194304))`\
+LDAPSearch accounts do not expire: `ldapsearch -x -h $IP -b 'dc=domain,dc=local' -D 'username' -w 'password' '(&(objectCategory=person)(objectClass=user)(userAccountControl:1.2.840.113556.1.4.803:=4194304))'`\
+LDAPSearch accounts do not expire: `ldapsearch -x -h $IP -b 'dc=domain,dc=local' -D 'username' -w 'password' '(&(objectCategory=person)(objectClass=user)(|(accountExpires=0)(accountExpires=9223372036854775807)))'`\
+LDAPSearch accounts with unconstrained delegation: `ldapsearch -x -h $IP -b 'dc=domain,dc=local' -D 'username' -w 'password' '(userAccountControl:1.2.840.113556.1.4.803:=524288)'`\
+LDAPSearch sensetive accounts with unconstrained delegation: `ldapsearch -x -h $IP -b 'dc=domain,dc=local' -D 'username' -w 'password' '(userAccountControl:1.2.840.113556.1.4.803:=1048576)'`\
+LDAPSearch account with password never expires: `ldapsearch -x -h $IP -b 'dc=domain,dc=local' -D 'username' -w 'password' '(&(objectCategory=person)(objectClass=user)(userAccountControl:1.2.840.113556.1.4.803:=65536))'`\
+LDAPSearch accounts disabled: `ldapsearch -x -h $IP -b 'dc=domain,dc=local' -D 'username' -w 'password' '(&(objectCategory=person)(objectClass=user)(userAccountControl:1.2.840.113556.1.4.803:=2))'`\
+LDAPSearch account enabled: `ldapsearch -x -h $IP -b 'dc=domain,dc=local' -D 'username' -w 'password' '	(&(objectCategory=person)(objectClass=user)(!(userAccountControl:1.2.840.113556.1.4.803:=2)))'`\
+LDAPSearch accounts not requiring password: `ldapsearch -x -h $IP -b 'dc=domain,dc=local' -D 'username' -w 'password' '(&(objectCategory=person)(objectClass=user)(userAccountControl:1.2.840.113556.1.4.803:=32))'`\
+LDAPSearch accounts required to change pw at next logon: `ldapsearch -x -h $IP -b 'dc=domain,dc=local' -D 'username' -w 'password' '(&(objectCategory=person)(objectClass=user)(pwdLastSet=0))'`\
+LDAPSearch accounts with password change date: `ldapsearch -x -h $IP -b 'dc=domain,dc=local' -D 'username' -w 'password' '(&(objectCategory=person)(objectClass=user(pwdLastSet>=129473172000000000))'`\
+LDAPSearch accounts not requiring password: `ldapsearch -x -h $IP -b 'dc=domain,dc=local' -D 'username' -w 'password' ''`\
+LDAPSearch accounts not requiring password: `ldapsearch -x -h $IP -b 'dc=domain,dc=local' -D 'username' -w 'password' ''`\
+
+
 ### RSH TCP/514:
 
 Metasploit: `auxiliary/scanner/rservices/rsh_login`
