@@ -345,7 +345,7 @@ LDAPSearch accounts disabled: `ldapsearch -x -h $IP -b 'dc=domain,dc=local' -D '
 LDAPSearch account enabled: `ldapsearch -x -h $IP -b 'dc=domain,dc=local' -D 'username' -w 'password' '	(&(objectCategory=person)(objectClass=user)(!(userAccountControl:1.2.840.113556.1.4.803:=2)))'`\
 LDAPSearch accounts not requiring password: `ldapsearch -x -h $IP -b 'dc=domain,dc=local' -D 'username' -w 'password' '(&(objectCategory=person)(objectClass=user)(userAccountControl:1.2.840.113556.1.4.803:=32))'`\
 LDAPSearch accounts required to change pw at next logon: `ldapsearch -x -h $IP -b 'dc=domain,dc=local' -D 'username' -w 'password' '(&(objectCategory=person)(objectClass=user)(pwdLastSet=0))'`\
-LDAPSearch accounts with password change date: `ldapsearch -x -h $IP -b 'dc=domain,dc=local' -D 'username' -w 'password' '(&(objectCategory=person)(objectClass=user(pwdLastSet>=129473172000000000))'`
+LDAPSearch accounts with password change date: `ldapsearch -x -h $IP -b 'dc=domain,dc=local' -D 'username' -w 'password' '(&(objectCategory=person)(objectClass=user)(pwdLastSet>=129473172000000000))'`
 
 
 ### RSH TCP/514:
