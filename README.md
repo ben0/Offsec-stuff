@@ -422,6 +422,7 @@ GoBuster options: `-t add slashes, -l length, -e extended URL, -s codes, -t thre
 Dirb through a proxy: `dirb [http://$ip/](http://172.16.0.19/) -p $ip:3129`
 
 ### LFI Windows:
+`
 C:\windows\win.ini
 C:\windows\system.ini
 C:\windows\iis.log
@@ -463,7 +464,7 @@ C:\windows\system32\inetsrv\config\schema\ASPNET_schema.xml
 C:\windows\System32\drivers\etc\hosts
 C:\windows\System32\drivers\etc\networks
 C:\windows\system32\config\SAM
-
+`
 
 ### Wordlists:
 
