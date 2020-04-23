@@ -327,7 +327,7 @@ SNMP Creds: `/usr/share/metasploit-framework/data/wordlists/snmp_default_pass.tx
 
 Metasploit Endpoint_mapper: `use auxiliary/scanner/dcerpc/endpoint_mapper`,`auxiliary/scanner/dcerpc/hidden`,`auxiliary/scanner/dcerpc/management`,`auxiliary/scanner/dcerpc/tcp_dcerpc_auditor`
 
-### LDAP TCP/389-636:
+### TCP/389-636:
 LDAP Windows User enumeration (SensePost-UserEnum): `UserEnum_LDAP.py $IP Contoso.local userslist.txt`
 LDAPSearch rootDSE query to get namingContext(no bind): `ldapsearch -x -h $IP -b '' -s base '(objectclass=*)' | grep namingContexts`\
 LDAPSearch for all objects (anonymous): `ldapsearch -x -h $IP -b 'dc=domain,dc=local' -D '' -w '' '(objectclass=*)'`\
@@ -343,7 +343,8 @@ LDAPSearch accounts disabled: `ldapsearch -x -h $IP -b 'dc=domain,dc=local' -D '
 LDAPSearch account enabled: `ldapsearch -x -h $IP -b 'dc=domain,dc=local' -D 'username' -w 'password' '	(&(objectCategory=person)(objectClass=user)(!(userAccountControl:1.2.840.113556.1.4.803:=2)))'`\
 LDAPSearch accounts not requiring password: `ldapsearch -x -h $IP -b 'dc=domain,dc=local' -D 'username' -w 'password' '(&(objectCategory=person)(objectClass=user)(userAccountControl:1.2.840.113556.1.4.803:=32))'`\
 LDAPSearch accounts required to change pw at next logon: `ldapsearch -x -h $IP -b 'dc=domain,dc=local' -D 'username' -w 'password' '(&(objectCategory=person)(objectClass=user)(pwdLastSet=0))'`\
-LDAPSearch accounts with password change date: `ldapsearch -x -h $IP -b 'dc=domain,dc=local' -D 'username' -w 'password' '(&(objectCategory=person)(objectClass=user)(pwdLastSet>=129473172000000000))'`
+LDAPSearch accounts with password change date: `ldapsearch -x -h $IP -b 'dc=domain,dc=local' -D 'username' -w 'password' '(&(objectCategory=person)(objectClass=user)(pwdLastSet>=129473172000000000))'`\
+LDAPSearch accounts with password change date: `ldapsearch -x -h $IP -b 'dc=domain,dc=local' -D 'username' -w 'password' '(ms-MCS-AdmPwd=*)' ms-MCS-AdmPwd`\
 
 
 ### RSH TCP/514:
