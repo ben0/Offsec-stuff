@@ -396,7 +396,7 @@ Bruteforce: `ncrack -vv --user administrator -P /usr/share/wordlists/rockyou.txt
 
 ASP Classic: `asp`\
 ASP.NET: `aspx,axd,asx,asmx,ashx`\
-All IIS: `asax,ascx,ashx,asmx,aspx,axd,browser,cd,compile,config,cs,vb,csproj,vbproj,disco,vsdisco,dsdgm,dsprototype,dll,licx,webinfo,master,mdb,ldb,mdf,msgx,svc,resrouce,resx,sdm,sdmDocument,sitemap,skin,sln,soap,asa,imDitto,cdx,cer,idc,shtm,shtm,stm,css,htm,html`\
+All IIS: `asp,aspx,axd,asx,asmx,ashx,asax,ascx,browser,cd,compile,config,cs,vb,csproj,vbproj,disco,vsdisco,dsdgm,dsprototype,dll,licx,webinfo,master,mdb,ldb,mdf,msgx,svc,resrouce,resx,sdm,sdmDocument,sitemap,skin,sln,soap,asa,imDitto,cdx,cer,idc,shtm,shtm,stm,css,htm,html`\
 CSS: `css`\
 Coldfusion: `cfm`\
 Erlang: `yaws`\
@@ -409,9 +409,9 @@ Perl: `pl`\
 Python: `py`\
 Ruby: `rb,rhtml`\
 SSI: `shtml`\
-XML: `xml, rss, svg`\
-Other (C, perl etc.): `cgi, dll`\
-Random: `txt, bak, un~`
+XML: `xml,rss,svg`\
+Other (C, perl etc.): `cgi,dll`\
+Random: `txt,bak,un~`
 
 ### Check http response codes: 200,204,301,302,307,403
 
